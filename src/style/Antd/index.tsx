@@ -1,4 +1,4 @@
-import { AntDropdown } from "./AntDropdown";
+import { AntDropdown } from './AntDropdown';
 
 const AntdStyle = () => {
   return <AntDropdown />;

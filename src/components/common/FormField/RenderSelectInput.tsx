@@ -1,7 +1,7 @@
-import { ArrowDownOutlined } from "@ant-design/icons";
-import { Col, Form, Select } from "antd";
+import { ArrowDownOutlined } from '@ant-design/icons';
+import { Col, Form, Select } from 'antd';
 
-import { IRenderSelectProps } from "./types";
+import { IRenderSelectProps } from './types';
 
 export const RenderSelectInput = ({
   col,
@@ -13,7 +13,7 @@ export const RenderSelectInput = ({
   required,
   onChange,
   value,
-  className = "",
+  className = '',
   optionLabel,
   disabled,
   onSelect,
@@ -22,8 +22,8 @@ export const RenderSelectInput = ({
   placeholder,
   allowClear,
   defaultValue,
-  prefixIcon = "",
-  suffixIcon,
+  prefixIcon = '',
+  suffixIcon
 }: IRenderSelectProps) => {
   return (
     <Col
@@ -33,12 +33,10 @@ export const RenderSelectInput = ({
       lg={col?.lg}
       xl={col?.xl}
       xxl={col?.xxl}
-      className={colClassName ?? ""}
+      className={colClassName ?? ''}
       offset={colOffSet}
     >
-      <div
-        className={`customSelect ${prefixIcon && "selectWithIcon"} ${className ?? className}`}
-      >
+      <div className={`customSelect ${prefixIcon && 'selectWithIcon'} ${className ?? className}`}>
         <Form.Item
           name={name}
           label={label}
@@ -63,14 +61,10 @@ export const RenderSelectInput = ({
                 {prefixIcon ? (
                   <>
                     <span className="prefixIcon">{prefixIcon}</span>
-                    <span className="selectArrowIcon">
-                      {suffixIcon || <ArrowDownOutlined />}
-                    </span>
+                    <span className="selectArrowIcon">{suffixIcon || <ArrowDownOutlined />}</span>
                   </>
                 ) : (
-                  <span className="selectArrowIcon">
-                    {suffixIcon || <ArrowDownOutlined />}
-                  </span>
+                  <span className="selectArrowIcon">{suffixIcon || <ArrowDownOutlined />}</span>
                 )}
               </div>
             }

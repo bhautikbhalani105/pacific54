@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import { Button, ModalProps, Space } from "antd";
+import { Button, ModalProps, Space } from 'antd';
 
-import { ModalWrapper } from "../Modal.Styled";
+import { ModalWrapper } from '../Modal.Styled';
 
 interface ISuccessModalProps extends ModalProps {
   ModalIcon?: ReactNode;
@@ -34,7 +34,7 @@ const SuccessModal = ({
   closable,
   maskClosable,
   children,
-  className,
+  className
 }: ISuccessModalProps) => {
   return (
     <ModalWrapper
@@ -50,16 +50,10 @@ const SuccessModal = ({
       footer={
         Footer ?? [
           <Space.Compact key={7} block>
-            <Button
-              onClick={onOk}
-              type="primary"
-              htmlType="button"
-              className="w-100"
-              size="large"
-            >
-              {ButtonText ?? "Save"}
+            <Button onClick={onOk} type="primary" htmlType="button" className="w-100" size="large">
+              {ButtonText ?? 'Save'}
             </Button>
-          </Space.Compact>,
+          </Space.Compact>
         ]
       }
     >
@@ -67,13 +61,9 @@ const SuccessModal = ({
         <div className="content-wrapper">
           <picture className="picture-wrapper">{ModalIcon}</picture>
           <div className="modal-header">
-            <h1 className="modal-title">
-              {ModalTitle ?? "Saved Successfully"}
-            </h1>
+            <h1 className="modal-title">{ModalTitle ?? 'Saved Successfully'}</h1>
           </div>
-          <p className="modal-text">
-            {ModalSubTitle ?? "Your data has been saved successful"}
-          </p>
+          <p className="modal-text">{ModalSubTitle ?? 'Your data has been saved successful'}</p>
           {children}
         </div>
       )}

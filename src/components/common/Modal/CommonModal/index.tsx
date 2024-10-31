@@ -1,11 +1,11 @@
-import { ModalWrapper } from "../Modal.Styled";
-import { IModalProps } from "../types";
+import { ModalWrapper } from '../Modal.Styled';
+import { IModalProps } from '../types';
 
 const CommonModal = ({
   open,
   title,
   width,
-  className = "",
+  className = '',
   onOk,
   onCancel,
   footer,
@@ -14,7 +14,7 @@ const CommonModal = ({
   closeIcon,
   closable = true,
   destroyOnClose,
-  maskClosable,
+  maskClosable
 }: IModalProps) => {
   return (
     <ModalWrapper

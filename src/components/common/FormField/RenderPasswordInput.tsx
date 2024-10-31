@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Col, Form, Input } from "antd";
+import { Col, Form, Input } from 'antd';
 
-import { IRenderInputProps } from "./types";
+import { IRenderInputProps } from './types';
 
 export const RenderPasswordInput = ({
   col,
@@ -14,7 +14,7 @@ export const RenderPasswordInput = ({
   placeholder,
   prefix,
   offSetPull,
-  required,
+  required
 }: IRenderInputProps) => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
   return (
@@ -25,12 +25,12 @@ export const RenderPasswordInput = ({
       lg={col?.lg}
       xl={col?.xl}
       xxl={col?.xxl}
-      className={colClassName ?? ""}
+      className={colClassName ?? ''}
       offset={colOffSet}
       pull={offSetPull}
     >
       <Form.Item
-        name={name ?? ""}
+        name={name ?? ''}
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         label={label}
@@ -43,7 +43,7 @@ export const RenderPasswordInput = ({
           prefix={prefix ?? null}
           visibilityToggle={{
             visible: passwordVisible,
-            onVisibleChange: setPasswordVisible,
+            onVisibleChange: setPasswordVisible
           }}
         />
       </Form.Item>

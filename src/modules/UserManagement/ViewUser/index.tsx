@@ -1,17 +1,17 @@
-import { ROUTES } from "../../../utils/constants/routes";
+import { ROUTES } from '../../../utils/constants/routes';
 
-import StyledBreadcrumb from "../../../components/layout/breadcrumb";
+import StyledBreadcrumb from '../../../components/layout/breadcrumb';
 
-import { Wrapper } from "../style";
+import { Wrapper } from '../style';
 
 const BreadcrumbsPath = [
   {
-    title: "User Management",
-    href: ROUTES.userManagement,
+    title: 'User Management',
+    href: ROUTES.userManagement
   },
   {
-    title: "View User",
-  },
+    title: 'View User'
+  }
 ];
 
 const ViewUser = () => {

@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 
 // You can add more meta tags as per your project's requirements
 interface IProps {

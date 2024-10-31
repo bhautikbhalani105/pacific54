@@ -1,10 +1,10 @@
-import { CloseCircleOutlined } from "@ant-design/icons";
+import { CloseCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 
-import { toAbsoluteUrl } from "../../../../utils/functions";
+import { toAbsoluteUrl } from '../../../../utils/functions';
 
-import { ModalWrapper } from "../Modal.Styled";
-import { IModalProps } from "../types";
-import { Button } from "antd";
+import { ModalWrapper } from '../Modal.Styled';
+import { IModalProps } from '../types';
 
 const DeleteModal = ({
   open,
@@ -13,7 +13,7 @@ const DeleteModal = ({
   closeIcon,
   width,
   modalTitle,
-  modalDesc,
+  modalDesc
 }: IModalProps) => {
   return (
     <ModalWrapper
@@ -35,21 +35,15 @@ const DeleteModal = ({
           >
             Cancel
           </Button>
-          <Button
-            onClick={onOk}
-            type="primary"
-            htmlType="button"
-            className="w-100"
-            size="middle"
-          >
+          <Button onClick={onOk} type="primary" htmlType="button" className="w-100" size="middle">
             Remove
           </Button>
-        </div>,
+        </div>
       ]}
     >
       <div className="content-wrapper">
         <picture className="picture-wrapper">
-          <img src={toAbsoluteUrl("/asset/RemoveTagBg.png")} alt="Background" />
+          <img src={toAbsoluteUrl('/asset/RemoveTagBg.png')} alt="Background" />
         </picture>
         <div className="modal-header">
           <h2 className="modal-title">{modalTitle}</h2>

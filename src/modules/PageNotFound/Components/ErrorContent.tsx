@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Button } from "antd";
+import { Button } from 'antd';
 
-import { Wrapper } from "./Error.Styled";
+import { Wrapper } from './Error.Styled';
 
 type Props = {
   title?: React.ReactNode;
@@ -11,9 +11,8 @@ type Props = {
 };
 
 const ErrorContent = ({ title, description, action }: Props) => {
-  const errTitle = title ?? "Something Went Wrong";
-  const errDescription =
-    description ?? "Sorry, an unexpected error has occurred";
+  const errTitle = title ?? 'Something Went Wrong';
+  const errDescription = description ?? 'Sorry, an unexpected error has occurred';
   const resetAction = action ?? (
     <Button type="primary" href="/alert/reports">
       Reload

@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { responsive } from "./Mixin";
+import { responsive } from './Mixin';
 
 export const Flex = createGlobalStyle`
 .d-table {
@@ -197,7 +197,7 @@ export const Flex = createGlobalStyle`
 }
 
 
-${responsive("lg")`
+${responsive('lg')`
     .sm-flex-row-reverse {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: reverse;

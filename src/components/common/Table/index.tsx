@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { TablePaginationConfig, TableProps } from "antd";
+import { TablePaginationConfig, TableProps } from 'antd';
 
-import { StyledTable } from "./style";
+import { StyledTable } from './style';
 
 interface CustomProps {
   summaryRow?: React.ReactNode;
@@ -22,15 +22,13 @@ const defaultPaginationSettings: Partial<TablePaginationConfig> = {
   showSizeChanger: true,
   showQuickJumper: true,
   defaultPageSize: 10,
-  pageSizeOptions: ["10", "20", "50", "100"],
-  size: "small",
-  position: ["bottomRight"],
-  showTotal: (total) => `Total ${total} items`,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  size: 'small',
+  position: ['bottomRight'],
+  showTotal: (total) => `Total ${total} items`
 };
 
-export const CommonTable: React.FC<TableProps<unknown> & CustomProps> = (
-  props,
-) => {
+export const CommonTable: React.FC<TableProps<unknown> & CustomProps> = (props) => {
   const { pagination, summaryRow } = props;
 
   return (

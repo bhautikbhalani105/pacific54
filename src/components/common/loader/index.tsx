@@ -1,6 +1,6 @@
-import { LoadingIcon } from "../../../components/svg";
+import { LoadingIcon } from '../../../components/svg';
 
-import { Spinner, Wrapper } from "./style";
+import { Spinner, Wrapper } from './style';
 
 interface IProps {
   children?: React.ReactNode;

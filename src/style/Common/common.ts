@@ -1,7 +1,7 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { theme } from "../Theme";
-import { boxShadow } from "./Mixin";
+import { theme } from '../Theme';
+import { boxShadow } from './Mixin';
 
 export const Common = createGlobalStyle`
 
@@ -34,7 +34,7 @@ export const Common = createGlobalStyle`
 	background: ${theme?.color?.white};
 	padding: 20px;
 	border-radius: 10px;
-    ${boxShadow("10px 10px 20px 5px rgba(0, 0, 0, 0.05)")}
+    ${boxShadow('10px 10px 20px 5px rgba(0, 0, 0, 0.05)')}
 
 	&.auto-height {
 		height: auto;

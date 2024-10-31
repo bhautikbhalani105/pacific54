@@ -1,9 +1,9 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-import { LocalStorageKeys } from "../../../utils/constants";
+import { LocalStorageKeys } from '../../../utils/constants';
 
-import { IUserData } from "../../../services/auth/types";
-import apiInstance from "../../../services/interceptor";
+import { IUserData } from '../../../services/auth/types';
+import apiInstance from '../../../services/interceptor';
 
 export type IAuthStore = {
   isLoading: boolean;
@@ -14,7 +14,7 @@ export type IAuthStore = {
 
 interface IAuthAction {
   actions: {
-    loaderChange: (status: IAuthStore["isLoading"]) => void;
+    loaderChange: (status: IAuthStore['isLoading']) => void;
     authSuccess: (payload: { data: IUserData }) => void;
     authFail: () => void;
   };
@@ -31,32 +31,25 @@ export const authStore = create<IAuthStore & IAuthAction>((set) => ({
     loaderChange: (status) => set((state) => ({ ...state, isLoading: status })),
     authSuccess: (payload) =>
       set((state) => {
-        apiInstance.defaults.headers.common["Authorization"] =
-          `Bearer ${payload.data.authToken}`;
-        localStorage.setItem(
-          LocalStorageKeys.authToken,
-          JSON.stringify(payload.data.authToken),
-        );
-        localStorage.setItem(
-          LocalStorageKeys.user,
-          JSON.stringify(payload.data),
-        );
+        apiInstance.defaults.headers.common['Authorization'] = `Bearer ${payload.data.authToken}`;
+        localStorage.setItem(LocalStorageKeys.authToken, JSON.stringify(payload.data.authToken));
+        localStorage.setItem(LocalStorageKeys.user, JSON.stringify(payload.data));
         return {
           ...state,
           userData: payload.data,
-          isLoggedIn: true,
+          isLoggedIn: true
         };
       }),
     authFail: () =>
       set((state) => {
-        delete apiInstance.defaults.headers.common["Authorization"];
+        delete apiInstance.defaults.headers.common['Authorization'];
         localStorage.removeItem(LocalStorageKeys.authToken);
         localStorage.removeItem(LocalStorageKeys.user);
         return {
           ...state,
           userData: {} as IUserData,
-          isLoggedIn: false,
+          isLoggedIn: false
         };
-      }),
-  },
+      })
+  }
 }));

@@ -1,15 +1,15 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy } from 'react';
 
-import { Content } from "antd/es/layout/layout";
-import { Outlet } from "react-router-dom";
+import { Content } from 'antd/es/layout/layout';
+import { Outlet } from 'react-router-dom';
 
-import { Loader } from "../../components/common/loader";
+import { Loader } from '../../components/common/loader';
 
-import { StyledLayout } from "./Layout.Styled";
-import Sidebar from "./sidebar";
+import { StyledLayout } from './Layout.Styled';
+import Sidebar from './sidebar';
 
-const Header = lazy(() => import("./header"));
-const Footer = lazy(() => import("./footer"));
+const Header = lazy(() => import('./header'));
+const Footer = lazy(() => import('./footer'));
 
 const Layout = () => {
   return (

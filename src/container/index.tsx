@@ -1,17 +1,17 @@
-import { Suspense } from "react";
+import { Suspense } from 'react';
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { BrowserRouter } from "react-router-dom";
-import ThemeConfig from "../style/Config";
-import GlobalStyle from "../style/Global";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { BrowserRouter } from 'react-router-dom';
 
-import { setupAxios } from "../utils/functions";
+import { setupAxios } from '../utils/functions';
 
-import ErrorBoundary from "../components/common/Error";
-import { LoaderWrapper } from "../components/common/loader";
+import ErrorBoundary from '../components/common/Error';
+import { LoaderWrapper } from '../components/common/loader';
 
-import Routes from "./routes";
+import ThemeConfig from '../style/Config';
+import GlobalStyle from '../style/Global';
+import Routes from './routes';
 
 setupAxios();
 
@@ -24,7 +24,7 @@ const AppContainer = () => (
         <Suspense
           fallback={
             <LoaderWrapper>
-              <h6 style={{ textAlign: "center" }}>Loading</h6>
+              <h6 style={{ textAlign: 'center' }}>Loading</h6>
             </LoaderWrapper>
           }
         >

@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import Breadcrumb from "antd/es/breadcrumb/Breadcrumb";
+import Breadcrumb from 'antd/es/breadcrumb/Breadcrumb';
 
-import { Wrapper } from "./breadcrumb.styled";
+import { Wrapper } from './breadcrumb.styled';
 
 interface BreadcrumbItem {
   title: string;

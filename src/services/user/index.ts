@@ -1,19 +1,18 @@
-import { UseQueryOptions } from "@tanstack/react-query";
+import { UseQueryOptions } from '@tanstack/react-query';
 
-import apiInstance from "../../services/interceptor";
-import { useApiQuery } from "../../services/masterHook";
-
-import { IUserListReq, IUserListRes } from "./types";
+import apiInstance from '../../services/interceptor';
+import { useApiQuery } from '../../services/masterHook';
+import { IUserListReq, IUserListRes } from './types';
 
 const ApiEndPoints = {
   list: `admin/user/list`,
-  create: `admin/user`,
+  create: `admin/user`
 };
 
 export const userQueryKey = {
-  all: ["user"],
+  all: ['user'],
   list: (args: IUserListReq) => [...userQueryKey.all, args],
-  detail: (id: string) => [...userQueryKey.all, id],
+  detail: (id: string) => [...userQueryKey.all, id]
 };
 
 // API
@@ -29,18 +28,14 @@ export const userAPI = {
 
   createUser(data: IUserListReq): Promise<IApiSuccess<unknown>> {
     return apiInstance.post(ApiEndPoints.create, data);
-  },
+  }
 };
 
 // Hooks
 export const userHooks = {
   UserList: (args: IUserListReq, queryOptions?: UseQueryOptions<any>) => {
-    return useApiQuery(
-      userQueryKey.list(args),
-      () => userAPI.getUserList(args),
-      {
-        ...queryOptions,
-      },
-    );
-  },
+    return useApiQuery(userQueryKey.list(args), () => userAPI.getUserList(args), {
+      ...queryOptions
+    });
+  }
 };

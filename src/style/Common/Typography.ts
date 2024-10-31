@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { responsive } from "./Mixin";
+import { responsive } from './Mixin';
 
 export const Typography = createGlobalStyle`
 /* Fonts Size */
@@ -28,7 +28,7 @@ p {
     font-size: 18px;
 }
 
-${responsive("sm")`
+${responsive('sm')`
     h1 {
         font-size: 35px;
     }

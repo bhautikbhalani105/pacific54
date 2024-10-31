@@ -1,6 +1,6 @@
-import { Col, Row } from "antd";
+import { Col, Row } from 'antd';
 
-import { Wrapper } from "../../cms.style";
+import { Wrapper } from '../../cms.style';
 
 const TermsAndCondition = () => {
   return (

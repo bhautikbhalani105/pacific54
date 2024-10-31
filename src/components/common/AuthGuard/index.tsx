@@ -1,12 +1,11 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-import { ROUTES } from "../../../utils/constants/routes";
+import { ROUTES } from '../../../utils/constants/routes';
 
-import { authStore } from "../../../services/store/auth";
-
-import { LoaderWrapper } from "../loader";
+import { authStore } from '../../../services/store/auth';
+import { LoaderWrapper } from '../loader';
 
 interface AuthGuardProps {
   children: React.ReactNode;

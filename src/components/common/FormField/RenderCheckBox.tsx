@@ -1,6 +1,6 @@
-import { Checkbox, Col, Form } from "antd";
+import { Checkbox, Col, Form } from 'antd';
 
-import { IRenderCheckBox } from "./types";
+import { IRenderCheckBox } from './types';
 
 export const RenderCheckBox = ({
   col,
@@ -16,7 +16,7 @@ export const RenderCheckBox = ({
   children,
   value,
   initialValue,
-  defaultChecked,
+  defaultChecked
 }: IRenderCheckBox) => {
   return (
     <Col
@@ -26,7 +26,7 @@ export const RenderCheckBox = ({
       lg={col?.lg}
       xl={col?.xl}
       xxl={col?.xxl}
-      className={colClassName ?? ""}
+      className={colClassName ?? ''}
       offset={colOffSet}
     >
       <Form.Item

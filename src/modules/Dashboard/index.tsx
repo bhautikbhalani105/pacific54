@@ -1,9 +1,9 @@
-import { Col, Row } from "antd";
+import { Col, Row } from 'antd';
 
-import Meta from "../../components/common/Meta";
-import ContentHeader from "../../components/layout/contentHeader";
+import Meta from '../../components/common/Meta';
+import ContentHeader from '../../components/layout/contentHeader';
 
-import { Wrapper } from "./style";
+import { Wrapper } from './style';
 
 const Dashboard = () => {
   return (

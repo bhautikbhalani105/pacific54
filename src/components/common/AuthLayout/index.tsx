@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-import { AuthWrapper } from "./Auth.Styled";
+import { AuthWrapper } from './Auth.Styled';
 
 export interface IAuthProps {
   containerClassName?: string;
@@ -11,9 +11,7 @@ const AuthLayout = (props: IAuthProps) => {
   const { containerClassName, authBg, children } = props;
   return (
     <AuthWrapper className={`authLayout ${containerClassName}`}>
-      <div className={`authWrapper ${!authBg ? "authBg" : authBg}`}>
-        {children}
-      </div>
+      <div className={`authWrapper ${!authBg ? 'authBg' : authBg}`}>{children}</div>
     </AuthWrapper>
   );
 };

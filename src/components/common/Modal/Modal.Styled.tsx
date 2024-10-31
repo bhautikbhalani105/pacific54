@@ -1,6 +1,6 @@
-import { Modal } from "antd";
+import { Modal } from 'antd';
 
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const CommonModalStyle = styled(Modal)`
   .ant-modal-content {
@@ -118,7 +118,7 @@ export const ModalWrapper = styled(Modal)`
             text-transform: uppercase;
             color: var(--dark-color);
             &::before {
-              content: "";
+              content: '';
               position: absolute;
               width: 6px;
               height: 6px;

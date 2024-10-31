@@ -1,4 +1,4 @@
-import ContentHeader from "../../../../components/layout/contentHeader";
+import ContentHeader from '../../../../components/layout/contentHeader';
 
 const ChangePassword = () => {
   return (

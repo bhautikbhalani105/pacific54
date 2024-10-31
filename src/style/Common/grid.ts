@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
-import { responsive } from "./Mixin";
+import { responsive } from './Mixin';
 
 export const Grid = createGlobalStyle`
 
@@ -450,7 +450,7 @@ export const Grid = createGlobalStyle`
 }
 
 
-${responsive("md")`
+${responsive('md')`
     .column-three {
         -ms-flex: 0 0 308px;
         flex: 0 0 308px;
@@ -471,7 +471,7 @@ ${responsive("md")`
     }
 `}
 
-${responsive("sm")`
+${responsive('sm')`
     .col-300px {
         -ms-flex: 0 0 320px;
         flex: 0 0 320px;

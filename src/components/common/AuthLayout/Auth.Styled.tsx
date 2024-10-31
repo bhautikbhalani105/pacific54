@@ -1,6 +1,6 @@
-import { theme } from "../../../style/Theme";
+import { styled } from 'styled-components';
 
-import { styled } from "styled-components";
+import { theme } from '../../../style/Theme';
 
 export const AuthWrapper = styled.section`
   &.authLayout {

@@ -1,8 +1,8 @@
-import { Component, ErrorInfo, ReactNode } from "react";
+import { Component, ErrorInfo, ReactNode } from 'react';
 
-import { toAbsoluteUrl } from "../../../utils/functions";
+import { toAbsoluteUrl } from '../../../utils/functions';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // Styled Components
 const ErrorContainer = styled.div`
@@ -58,7 +58,7 @@ interface State {
 
 class ErrorBoundary extends Component<Props, State> {
   state: State = {
-    hasError: false,
+    hasError: false
   };
 
   static getDerivedStateFromError(): State {
@@ -66,7 +66,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, info: ErrorInfo): void {
-    console.error("ErrorBoundary caught an error", error, info);
+    console.error('ErrorBoundary caught an error', error, info);
   }
 
   handleRefresh = () => {
@@ -77,10 +77,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <ErrorContainer>
-          <ErrorImage
-            src={`${toAbsoluteUrl("/icons/icon-error.png")}`}
-            alt="Error Illustration"
-          />
+          <ErrorImage src={`${toAbsoluteUrl('/icons/icon-error.png')}`} alt="Error Illustration" />
           <ErrorTitle>Oops! Something went wrong :(</ErrorTitle>
           <ErrorMessage>Try to refresh the page</ErrorMessage>
           <RefreshButton onClick={this.handleRefresh}>Refresh</RefreshButton>

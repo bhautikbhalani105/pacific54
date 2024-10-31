@@ -1,11 +1,9 @@
-import { setAxiosInterceptor } from "../services/interceptor";
-import { authStore } from "../services/store/auth";
-
-import { LocalStorageKeys } from "./constants";
+import { setAxiosInterceptor } from '../services/interceptor';
+import { authStore } from '../services/store/auth';
+import { LocalStorageKeys } from './constants';
 
 //To concate the path for the public folder
-export const toAbsoluteUrl = (pathname: string) =>
-  window.location.origin + pathname;
+export const toAbsoluteUrl = (pathname: string) => window.location.origin + pathname;
 
 // Rehydrate store and set axios default headers
 export const setupAxios = () => {

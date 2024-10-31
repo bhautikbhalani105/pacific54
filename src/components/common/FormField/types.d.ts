@@ -1,4 +1,4 @@
-import { SizeType } from "antd/es/config-provider/SizeContext";
+import { SizeType } from 'antd/es/config-provider/SizeContext';
 
 type NameType = string | number | (string | number)[];
 export interface IRenderInputProps {

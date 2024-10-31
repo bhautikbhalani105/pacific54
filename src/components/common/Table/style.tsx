@@ -1,6 +1,6 @@
-import { Table } from "antd";
+import { Table } from 'antd';
 
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const StyledTable = styled(Table)`
   &.ant-table-wrapper {

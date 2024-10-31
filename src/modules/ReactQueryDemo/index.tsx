@@ -1,7 +1,7 @@
-import UserList from "./components/UserList";
-import Meta from "../../components/common/Meta";
+import Meta from '../../components/common/Meta';
+import UserList from './components/UserList';
 
-import { Wrapper } from "./style";
+import { Wrapper } from './style';
 
 const ReactQueryDemo = () => {
   return (

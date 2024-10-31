@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { theme } from "../../style/Theme";
+import styled from 'styled-components';
+
+import { theme } from '../../style/Theme';
 
 export const Wrapper = styled.div`
   .dashboardInfo {

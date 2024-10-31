@@ -1,5 +1,6 @@
-import { ConfigProvider } from "antd";
-import { theme } from "../../style/Theme";
+import { ConfigProvider } from 'antd';
+
+import { theme } from '../../style/Theme';
 
 const ThemeConfig = ({ children }: any) => {
   return (
@@ -29,20 +30,20 @@ const ThemeConfig = ({ children }: any) => {
           fontSizeLG: 16,
           lineHeight: 1,
           controlPaddingHorizontal: 15,
-          controlPaddingHorizontalSM: 10,
+          controlPaddingHorizontalSM: 10
         },
         components: {
           Layout: {
             bodyBg: `${theme?.color?.light}`,
             footerBg: `${theme?.color?.white}`,
-            footerPadding: "20px 30px",
+            footerPadding: '20px 30px',
             headerBg: `${theme?.color?.white}`,
             headerHeight: 64,
-            headerPadding: "0 30px",
+            headerPadding: '0 30px',
             siderBg: `${theme?.color?.white}`,
             triggerBg: `${theme?.color?.light}`,
             triggerColor: `${theme?.color?.black}`,
-            triggerHeight: 56,
+            triggerHeight: 56
           },
           Menu: {
             darkItemBg: `${theme?.color?.white}`,
@@ -52,22 +53,22 @@ const ThemeConfig = ({ children }: any) => {
             darkItemSelectedBg: `${theme?.color?.primary}`,
             darkItemSelectedColor: `${theme?.color?.primary}`,
             darkItemDisabledColor: `${theme?.color?.grayLight}`,
-            darkSubMenuItemBg: "inherit",
+            darkSubMenuItemBg: 'inherit',
             iconSize: 16,
             collapsedIconSize: 16,
             itemBorderRadius: 10,
             itemHeight: 42,
             itemMarginBlock: 6,
-            itemMarginInline: 12,
+            itemMarginInline: 12
           },
           Form: {
             itemMarginBottom: 0,
             labelColor: `${theme?.color?.dark}`,
             labelFontSize: 14,
             labelHeight: 30,
-            verticalLabelPadding: "0 0 6px",
+            verticalLabelPadding: '0 0 6px',
             colorError: `${theme?.color?.danger}`,
-            lineHeight: 2,
+            lineHeight: 2
           },
           Table: {
             borderColor: `${theme?.color?.primaryLight}`,
@@ -75,13 +76,13 @@ const ThemeConfig = ({ children }: any) => {
             headerBg: `${theme?.color?.primaryLight}`,
             headerColor: `${theme?.color?.black}`,
             rowHoverBg: `${theme?.color?.light}`,
-            headerBorderRadius: 6,
+            headerBorderRadius: 6
           },
           Pagination: {
             itemSize: 30,
-            itemSizeSM: 30,
-          },
-        },
+            itemSizeSM: 30
+          }
+        }
       }}
     >
       {children}

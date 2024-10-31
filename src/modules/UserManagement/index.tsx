@@ -1,12 +1,12 @@
-import UserManagementTable from "./components";
-import StyledBreadcrumb from "../../components/layout/breadcrumb";
+import StyledBreadcrumb from '../../components/layout/breadcrumb';
+import UserManagementTable from './components';
 
-import { Wrapper } from "./style";
+import { Wrapper } from './style';
 
 const BreadcrumbsPath = [
   {
-    title: "User Management",
-  },
+    title: 'User Management'
+  }
 ];
 
 const UserManagement = () => {

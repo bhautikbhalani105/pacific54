@@ -4,32 +4,18 @@ function generateRandomUser(index: number) {
   }
 
   const userId = String(getRandomInt(100000, 999999));
-  const names = [
-    "John Doe",
-    "Alice Johnson",
-    "Bob Smith",
-    "Emily Davis",
-    "David Lee",
-  ];
+  const names = ['John Doe', 'Alice Johnson', 'Bob Smith', 'Emily Davis', 'David Lee'];
   const userName = names[getRandomInt(0, names.length - 1)];
   const email = `user${userId}@example.com`;
-  const status = Math.random() < 0.5 ? "active" : "inactive";
+  const status = Math.random() < 0.5 ? 'active' : 'inactive';
 
-  const createdDate = new Date(
-    getRandomInt(2000, 2022),
-    getRandomInt(0, 11),
-    getRandomInt(1, 28),
-  );
+  const createdDate = new Date(getRandomInt(2000, 2022), getRandomInt(0, 11), getRandomInt(1, 28));
 
-  const lastUsedDate = new Date(
-    getRandomInt(2000, 2022),
-    getRandomInt(0, 11),
-    getRandomInt(1, 28),
-  );
+  const lastUsedDate = new Date(getRandomInt(2000, 2022), getRandomInt(0, 11), getRandomInt(1, 28));
 
   const formatDate = (date: any) => {
-    const day = String(date.getDate()).padStart(2, "0");
-    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
     return `${day}/${month}/${year}`;
   };
@@ -41,10 +27,10 @@ function generateRandomUser(index: number) {
     email,
     status,
     created_at: formatDate(createdDate),
-    last_used: formatDate(lastUsedDate),
+    last_used: formatDate(lastUsedDate)
   };
 }
 
 export const usersManagementData = Array?.from({ length: 100 }, (_, index) =>
-  generateRandomUser(index),
+  generateRandomUser(index)
 );

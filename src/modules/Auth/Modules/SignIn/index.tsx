@@ -1,21 +1,18 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Row } from "antd";
-import { FormTitle } from "../../../../modules/Auth/Auth.Styled";
-import { Navigate, useNavigate } from "react-router-dom";
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Col, Form, Row } from 'antd';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-import { ROUTES } from "../../../../utils/constants/routes";
+import { ROUTES } from '../../../../utils/constants/routes';
 
-import { authApi } from "../../../../services/auth";
-import { authStore } from "../../../../services/store/auth";
+import AuthLayout from '../../../../components/common/AuthLayout';
+import { RenderPasswordInput, RenderTextInput } from '../../../../components/common/FormField';
+import Meta from '../../../../components/common/Meta';
 
-import AuthLayout from "../../../../components/common/AuthLayout";
-import {
-  RenderPasswordInput,
-  RenderTextInput,
-} from "../../../../components/common/FormField";
-import Meta from "../../../../components/common/Meta";
+import { FormTitle } from '../../../../modules/Auth/Auth.Styled';
+import { authApi } from '../../../../services/auth';
+import { authStore } from '../../../../services/store/auth';
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
@@ -25,13 +22,13 @@ const SignIn: React.FC = () => {
   const onSubmit = useCallback(async () => {
     try {
       const res = await authApi.signIn({
-        email: "rootadmin@yopmail.com",
-        password: "123456",
+        email: 'rootadmin@yopmail.com',
+        password: '123456'
       });
       actions.authSuccess(res);
       navigate(ROUTES.dashboard);
     } catch (error) {
-      console.log("error: ", error);
+      console.log('error: ', error);
       alert((error as Error)?.message);
     }
   }, [navigate, actions]);
@@ -45,12 +42,7 @@ const SignIn: React.FC = () => {
       <Meta title="Demo App - Sign In" />
       <AuthLayout>
         <FormTitle>Login</FormTitle>
-        <Form
-          onFinish={onSubmit}
-          form={form}
-          autoComplete="off"
-          className="signInForm"
-        >
+        <Form onFinish={onSubmit} form={form} autoComplete="off" className="signInForm">
           <Row gutter={[0, 30]}>
             <RenderTextInput
               col={{ xs: 24 }}
@@ -63,12 +55,12 @@ const SignIn: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please enter your email",
+                  message: 'Please enter your email'
                 },
                 {
-                  type: "email",
-                  message: "Please enter valid email",
-                },
+                  type: 'email',
+                  message: 'Please enter valid email'
+                }
               ]}
             />
             <RenderPasswordInput
@@ -83,32 +75,20 @@ const SignIn: React.FC = () => {
                 () => ({
                   validator: (_: any, value: string) => {
                     if (!value) {
-                      return Promise.reject(
-                        new Error("Please enter your password"),
-                      );
-                    } else if (
-                      /^\S{3,}$/.test(value) &&
-                      /^.{6,16}$/.test(value)
-                    ) {
+                      return Promise.reject(new Error('Please enter your password'));
+                    } else if (/^\S{3,}$/.test(value) && /^.{6,16}$/.test(value)) {
                       return Promise.resolve();
                     } else {
                       return Promise.reject(
-                        new Error(
-                          "Password must be 6-16 characters long and not contain spaces",
-                        ),
+                        new Error('Password must be 6-16 characters long and not contain spaces')
                       );
                     }
-                  },
-                }),
+                  }
+                })
               ]}
             />
             <Col xs={24}>
-              <Button
-                block={true}
-                type="primary"
-                size="middle"
-                htmlType="submit"
-              >
+              <Button block={true} type="primary" size="middle" htmlType="submit">
                 Login
               </Button>
             </Col>

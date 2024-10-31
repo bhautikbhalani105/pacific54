@@ -1,19 +1,17 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
-import { Button, Col, Form, Row } from "antd";
-import { FormTitle } from "../../../../modules/Auth/Auth.Styled";
+import { Button, Col, Form, Row } from 'antd';
 
-import AuthLayout from "../../../../components/common/AuthLayout";
-import {
-  RenderPasswordInput,
-  RenderTextInput,
-} from "../../../../components/common/FormField";
-import Meta from "../../../../components/common/Meta";
+import AuthLayout from '../../../../components/common/AuthLayout';
+import { RenderPasswordInput, RenderTextInput } from '../../../../components/common/FormField';
+import Meta from '../../../../components/common/Meta';
+
+import { FormTitle } from '../../../../modules/Auth/Auth.Styled';
 
 const SignIn: React.FC = () => {
   const [form] = Form.useForm();
   const onSubmit = useCallback(async () => {
-    console.log("onSubmit");
+    console.log('onSubmit');
   }, []);
 
   return (
@@ -21,12 +19,7 @@ const SignIn: React.FC = () => {
       <Meta title="Demo App - Sign Up" />
       <AuthLayout>
         <FormTitle>SignUp</FormTitle>
-        <Form
-          onFinish={onSubmit}
-          form={form}
-          autoComplete="off"
-          className="signUpForm"
-        >
+        <Form onFinish={onSubmit} form={form} autoComplete="off" className="signUpForm">
           <Row gutter={[0, 30]}>
             <RenderTextInput
               col={{ xs: 24 }}
@@ -38,12 +31,12 @@ const SignIn: React.FC = () => {
               rules={[
                 {
                   required: true,
-                  message: "Please enter your email",
+                  message: 'Please enter your email'
                 },
                 {
-                  type: "email",
-                  message: "Please enter valid email",
-                },
+                  type: 'email',
+                  message: 'Please enter valid email'
+                }
               ]}
             />
             <RenderPasswordInput
@@ -58,32 +51,20 @@ const SignIn: React.FC = () => {
                 () => ({
                   validator: (_: any, value: string) => {
                     if (!value) {
-                      return Promise.reject(
-                        new Error("Please enter your password"),
-                      );
-                    } else if (
-                      /^\S{3,}$/.test(value) &&
-                      /^.{6,16}$/.test(value)
-                    ) {
+                      return Promise.reject(new Error('Please enter your password'));
+                    } else if (/^\S{3,}$/.test(value) && /^.{6,16}$/.test(value)) {
                       return Promise.resolve();
                     } else {
                       return Promise.reject(
-                        new Error(
-                          "Password must be 6-16 characters long and not contain spaces",
-                        ),
+                        new Error('Password must be 6-16 characters long and not contain spaces')
                       );
                     }
-                  },
-                }),
+                  }
+                })
               ]}
             />
             <Col xs={24}>
-              <Button
-                block={true}
-                type="primary"
-                size="middle"
-                htmlType="submit"
-              >
+              <Button block={true} type="primary" size="middle" htmlType="submit">
                 Login
               </Button>
             </Col>

@@ -1,6 +1,6 @@
-import { theme } from "../../style/Theme";
+import styled from 'styled-components';
 
-import styled from "styled-components";
+import { theme } from '../../style/Theme';
 
 export const FormTitle = styled.h2`
   margin-bottom: 26px;

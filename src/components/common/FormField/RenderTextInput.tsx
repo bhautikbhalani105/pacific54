@@ -1,6 +1,6 @@
-import { Col, Form, Input } from "antd";
+import { Col, Form, Input } from 'antd';
 
-import { IRenderInputProps } from "./types";
+import { IRenderInputProps } from './types';
 
 export const RenderTextInput = (props: IRenderInputProps) => {
   const {
@@ -29,7 +29,7 @@ export const RenderTextInput = (props: IRenderInputProps) => {
     allowClear,
     required,
     size,
-    tooltip,
+    tooltip
   } = props;
   return (
     <Col
@@ -39,12 +39,12 @@ export const RenderTextInput = (props: IRenderInputProps) => {
       lg={col?.lg}
       xl={col?.xl}
       xxl={col?.xxl}
-      className={colClassName ?? ""}
+      className={colClassName ?? ''}
       offset={colOffSet}
       pull={offSetPull}
     >
       <Form.Item
-        name={name ?? ""}
+        name={name ?? ''}
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         label={label}
@@ -69,7 +69,7 @@ export const RenderTextInput = (props: IRenderInputProps) => {
           suffix={suffix}
           prefix={prefix}
           allowClear={allowClear}
-          size={size ?? "middle"}
+          size={size ?? 'middle'}
         />
       </Form.Item>
     </Col>

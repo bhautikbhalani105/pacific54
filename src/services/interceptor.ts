@@ -1,25 +1,25 @@
-import axios, { AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-import { API_BASE } from "../utils/constants";
-import { appLoader } from "../utils/functions";
+import { API_BASE } from '../utils/constants';
+import { appLoader } from '../utils/functions';
 
-import { authStore } from "../services/store/auth";
+import { authStore } from '../services/store/auth';
 
 const apiInstance: AxiosInstance = axios.create({
-  baseURL: API_BASE,
+  baseURL: API_BASE
 });
 
 export function setAxiosInterceptor() {
   apiInstance.interceptors.request.use(
     (config) => {
       appLoader(true);
-      console.log("Starting Loading");
+      console.log('Starting Loading');
       return config;
     },
     (error) => {
-      console.error("Request interceptor error:", error);
+      console.error('Request interceptor error:', error);
       return Promise.reject(error);
-    },
+    }
   );
 
   // It's used to intercept all the axios api response
@@ -42,12 +42,12 @@ export function setAxiosInterceptor() {
         return Promise.reject({
           response: {
             data: {
-              message: "Something went wrong, Please try again later!!!",
-            },
-          },
+              message: 'Something went wrong, Please try again later!!!'
+            }
+          }
         });
       }
-    },
+    }
   );
 }
 

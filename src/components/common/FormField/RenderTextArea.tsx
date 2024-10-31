@@ -1,5 +1,5 @@
-import { Col, Form } from "antd";
-import TextArea from "antd/es/input/TextArea";
+import { Col, Form } from 'antd';
+import TextArea from 'antd/es/input/TextArea';
 
 export const RenderTextArea = (props: any) => {
   return (

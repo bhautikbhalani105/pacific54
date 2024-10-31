@@ -12,5 +12,5 @@ export const ROUTES = {
   userEdit: `/user-management/edit-user`,
   privacyPolicy: `/privacy-policy`,
   termsAndConditions: `/terms-and-conditions`,
-  reactQueryDemo: `/react-query-demo`,
+  reactQueryDemo: `/react-query-demo`
 };

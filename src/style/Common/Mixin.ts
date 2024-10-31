@@ -1,6 +1,6 @@
-import { theme } from "../../style/Theme";
+import { css } from 'styled-components';
 
-import { css } from "styled-components";
+import { theme } from '../../style/Theme';
 
 export const responsive = (media: keyof typeof theme.device) => {
   return (styles: TemplateStringsArray | string) => css`
@@ -14,7 +14,7 @@ export const linearGradient = (
   degrees: number,
   colorOne: string,
   colorTwo: string,
-  colorTwoPercent: string,
+  colorTwoPercent: string
 ) => css`
   background-image: -moz-linear-gradient(
     ${degrees}deg,
@@ -36,11 +36,7 @@ export const linearGradient = (
     ${colorOne} 0%,
     ${colorTwo} ${colorTwoPercent}
   );
-  background-image: linear-gradient(
-    ${degrees}deg,
-    ${colorOne} 0%,
-    ${colorTwo} ${colorTwoPercent}
-  );
+  background-image: linear-gradient(${degrees}deg, ${colorOne} 0%, ${colorTwo} ${colorTwoPercent});
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='${colorOne}', endColorstr='${colorTwo}', GradientType=1);
 `;
 

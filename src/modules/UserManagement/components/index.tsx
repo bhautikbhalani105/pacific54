@@ -1,64 +1,64 @@
-import React from "react";
+import React from 'react';
 
-import { DeleteOutlined, EditOutlined, EyeOutlined } from "@ant-design/icons";
-import { ColumnsType } from "antd/es/table";
-import { useNavigate } from "react-router-dom";
+import { DeleteOutlined, EditOutlined, EyeOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import { ColumnsType } from 'antd/es/table';
+import { useNavigate } from 'react-router-dom';
 
-import { ROUTES } from "../../../utils/constants/routes";
+import { ROUTES } from '../../../utils/constants/routes';
 
-import DeleteModal from "../../../components/common/Modal/DeleteModal";
-import { CommonTable } from "../../../components/common/Table";
-import { usersManagementData } from "../../../components/common/Table/dummyData";
-import { Button } from "antd";
+import DeleteModal from '../../../components/common/Modal/DeleteModal';
+import { CommonTable } from '../../../components/common/Table';
+import { usersManagementData } from '../../../components/common/Table/dummyData';
 
 const UserManagementTable = () => {
   const navigate = useNavigate();
 
   const handleDeleteModal = React.useCallback(async (id: number) => {
-    console.log("User Id Is", id);
+    console.log('User Id Is', id);
   }, []);
 
   const columns: ColumnsType<any> = [
     {
-      title: "Index",
-      dataIndex: "rowId",
-      key: "rowId",
+      title: 'Index',
+      dataIndex: 'rowId',
+      key: 'rowId'
     },
     {
-      title: "User ID",
-      dataIndex: "userId",
-      key: "userId",
+      title: 'User ID',
+      dataIndex: 'userId',
+      key: 'userId'
     },
     {
-      dataIndex: "userName",
-      title: "User Name",
-      key: "userName",
+      dataIndex: 'userName',
+      title: 'User Name',
+      key: 'userName'
     },
     {
-      title: "Email Address",
-      dataIndex: "email",
-      key: "email",
+      title: 'Email Address',
+      dataIndex: 'email',
+      key: 'email'
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      key: "status",
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status'
     },
     {
-      title: "Created at",
-      dataIndex: "created_at",
-      key: "created_at",
+      title: 'Created at',
+      dataIndex: 'created_at',
+      key: 'created_at'
     },
     {
-      title: "Last Used",
-      dataIndex: "last_used",
-      key: "last_used",
+      title: 'Last Used',
+      dataIndex: 'last_used',
+      key: 'last_used'
     },
     {
-      title: "Actions",
-      dataIndex: "actions",
-      key: "actions",
-      className: "text-center",
+      title: 'Actions',
+      dataIndex: 'actions',
+      key: 'actions',
+      className: 'text-center',
       render: (_, record: any) => (
         <>
           <Button
@@ -83,8 +83,8 @@ const UserManagementTable = () => {
             onClick={() => handleDeleteModal(record?.rowId)}
           />
         </>
-      ),
-    },
+      )
+    }
   ];
 
   return (

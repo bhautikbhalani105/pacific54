@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { StyledImage } from "./style";
-import { ImageProps } from "./type";
+import { StyledImage } from './style';
+import { ImageProps } from './type';
 
 const Image: React.FC<ImageProps> = ({
   src,
   alt,
   width,
   height,
-  layout = "responsive",
-  objectFit = "cover",
-  loading = "lazy",
+  layout = 'responsive',
+  objectFit = 'cover',
+  loading = 'lazy',
   className,
   ...props
 }) => {

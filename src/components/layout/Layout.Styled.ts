@@ -1,7 +1,8 @@
-import { Layout } from "antd";
-import { theme } from "../../style/Theme";
+import { Layout } from 'antd';
 
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
+
+import { theme } from '../../style/Theme';
 
 export const StyledLayout = styled(Layout)`
   --headerHeight: 60px;
