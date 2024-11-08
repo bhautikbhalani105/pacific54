@@ -8,6 +8,6 @@ export const FormTitle = styled.h2`
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: ${theme?.font?.family?.sans};
+  font-family: ${theme?.font?.family?.openSans};
   text-align: center;
 `;

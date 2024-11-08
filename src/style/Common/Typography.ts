@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { theme } from '../Theme';
 import { responsive } from './Mixin';
 
 export const Typography = createGlobalStyle`
@@ -22,6 +23,13 @@ h4 {
 
 h5 {
     font-size: 20px;
+}
+
+h6 {
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: -2%;
+    font-weight: ${theme?.font?.weight[600]};
 }
 
 p {

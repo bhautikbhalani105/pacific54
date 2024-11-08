@@ -1,13 +1,14 @@
 export const theme = {
   color: {
-    primary: '#42526E',
+    primary: '#074992',
+    // primary: '#42526E',
     primaryLight: '#EB6D004c',
     secondary: '#96c11e',
     secondaryLight: '#96c11e4c',
     transparent: 'transparent',
 
-    success: '#28a745',
-    danger: '#dc3545',
+    success: '#3CB985',
+    danger: '#FF4D4F',
     warning: '#ffc107',
     info: '#17a2b8',
     light: '#f5f5f5',
@@ -16,12 +17,19 @@ export const theme = {
     white: '#ffffff',
     black: '#000000',
     gray: '#dddddd',
-    grayLight: '#d3d3d34c'
+    gray3: '#F4F5F7',
+    gray5: '#DFE1E6',
+    gray6: '#C1C7D0',
+    gray7: '#A5ADBA',
+    gray9: '#6B778C',
+    grayLight: '#d3d3d34c',
+
+    textTitle: '#223047'
   },
   font: {
     family: {
-      sans: 'sans-serif',
-      roboto: 'roboto'
+      inter: `"Inter", sans-serif`,
+      openSans: `"Open Sans", sans-serif`
     },
     weight: {
       normal: 'normal',

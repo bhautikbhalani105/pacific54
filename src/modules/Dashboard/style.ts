@@ -12,14 +12,14 @@ export const Wrapper = styled.div`
     .number {
       display: inline-block;
       margin-bottom: 3px;
-      font-family: ${theme?.font?.family?.sans};
+      font-family: ${theme?.font?.family?.openSans};
       font-weight: 700;
       font-size: 36px;
       color: ${theme?.color?.black};
     }
 
     .infoTitle {
-      font-family: ${theme?.font?.family?.sans};
+      font-family: ${theme?.font?.family?.openSans};
       font-weight: 400;
       font-size: 16px;
       color: ${theme?.color?.dark};

@@ -26,7 +26,7 @@ const ThemeConfig = ({ children }: any) => {
           controlHeightSM: 30,
           controlOutline: `${theme?.color?.transparent}`,
           fontSize: 14,
-          fontFamily: `${theme?.font?.family?.sans}`,
+          fontFamily: `${theme?.font?.family?.openSans}`,
           fontSizeLG: 16,
           lineHeight: 1,
           controlPaddingHorizontal: 15,
@@ -71,16 +71,27 @@ const ThemeConfig = ({ children }: any) => {
             lineHeight: 2
           },
           Table: {
-            borderColor: `${theme?.color?.primaryLight}`,
+            borderColor: `${theme?.color?.gray5}`,
             cellFontSizeSM: 14,
-            headerBg: `${theme?.color?.primaryLight}`,
-            headerColor: `${theme?.color?.black}`,
+            headerBg: `${theme?.color?.gray3}`,
+            headerColor: `${theme?.color?.gray9}`,
             rowHoverBg: `${theme?.color?.light}`,
-            headerBorderRadius: 6
+            borderRadius: 0,
+            headerBorderRadius: 7,
+            cellPaddingBlock: 8,
+            cellPaddingInline: 8,
+            colorText: `${theme?.color?.textTitle}`
           },
           Pagination: {
             itemSize: 30,
             itemSizeSM: 30
+          },
+          Typography: {
+            colorSuccess: `${theme?.color?.success}`,
+            colorError: `${theme?.color?.danger}`
+          },
+          Rate: {
+            fontSize: 6
           }
         }
       }}

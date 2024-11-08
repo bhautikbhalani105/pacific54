@@ -71,9 +71,9 @@ export const StyledLayout = styled(Layout)`
     }
   }
   .content-body {
-    padding: 15px 0;
+    padding: 20px 0;
   }
   .content-wrap {
-    padding: 0 15px;
+    padding: 0 20px;
   }
 `;

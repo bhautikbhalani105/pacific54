@@ -14,7 +14,7 @@ const SignIn = lazy(() => import('../modules/Auth/Modules/SignIn'));
 const SignUp = lazy(() => import('../modules/Auth/Modules/SignUp'));
 const ForgotPassword = lazy(() => import('../modules/Auth/Modules/ForgotPassword'));
 const ChangePassword = lazy(() => import('../modules/Auth/Modules/ChangePassword'));
-const Dashboard = lazy(() => import('../modules/Dashboard'));
+const HomeBuy = lazy(() => import('../modules/Home/Buy'));
 const MyAccount = lazy(() => import('../modules/MyAccount'));
 const UserList = lazy(() => import('../modules/UserManagement'));
 const UserView = lazy(() => import('../modules/UserManagement/ViewUser'));
@@ -38,7 +38,7 @@ const Routing = () => {
       >
         <Route path={ROUTES.pageNotFound} element={<PageNotFound />} />
         <Route path={ROUTES.changePassword} element={<ChangePassword />} />
-        <Route path={ROUTES.dashboard} element={<Dashboard />} />
+        <Route path={ROUTES.dashboard} element={<HomeBuy />} />
         <Route path={ROUTES.myAccount} element={<MyAccount />} />
         <Route path={ROUTES.userManagement} element={<Outlet />}>
           <Route path={ROUTES.userManagement} element={<UserList />} />

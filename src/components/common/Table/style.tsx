@@ -3,7 +3,7 @@ import { Table } from 'antd';
 import { styled } from 'styled-components';
 
 export const StyledTable = styled(Table)`
-  &.ant-table-wrapper {
+  /* &.ant-table-wrapper {
     .ant-spin-container {
       .ant-table {
         &.ant-table-small {
@@ -23,5 +23,5 @@ export const StyledTable = styled(Table)`
         }
       }
     }
-  }
+  } */
 `;

@@ -26,7 +26,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: ${theme?.color?.light};
-    font-family: ${theme?.font?.family?.sans};
+    font-family: ${theme?.font?.family?.openSans};
     font-style: normal;
     font-weight: normal;
     line-height: 1.5;
@@ -60,9 +60,9 @@ h6,
 strong,
 b {
     font-weight: normal;
-    line-height: normal;
-    letter-spacing: 1px;
-    /* font-family: ${theme?.font.family.roboto}; */
+    line-height: 1.375;
+    letter-spacing: 0;
+    font-family: ${theme?.font?.family?.openSans};
     font-weight: 700;
 }
 
