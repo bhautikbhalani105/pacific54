@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+
 import { toAbsoluteUrl } from '../functions';
 
 export function formatPrice(number: number, format: string = 'indian') {
@@ -43,4 +44,4 @@ export function propertyStatus(color: string) {
   }
 }
 
-export const fallbackImg = toAbsoluteUrl("/Images/Svg/fallback-img.svg");
+export const fallbackImg = toAbsoluteUrl('/Images/Svg/fallback-img.svg');

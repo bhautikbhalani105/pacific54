@@ -23,7 +23,20 @@ interface IProps {
 }
 
 const PropertyCard: React.FC<IProps> = (props) => {
-  const { address, beds, baths, capRate, estRent, estValue, liDate, pictures, roi, sqFt, status, thumb } = props;
+  const {
+    address,
+    beds,
+    baths,
+    capRate,
+    estRent,
+    estValue,
+    liDate,
+    pictures,
+    roi,
+    sqFt,
+    status,
+    thumb
+  } = props;
 
   const area = Intl.NumberFormat('en-US').format(sqFt);
   const daysCount = getDaysDiff(liDate);
@@ -31,20 +44,18 @@ const PropertyCard: React.FC<IProps> = (props) => {
   const fEstRent = Intl.NumberFormat('en-US').format(estRent);
   const fEstValue = Intl.NumberFormat('en-US').format(estValue);
   const fRoi = nunSign(roi, '%');
-  const fStatus = propertyStatus(status);  
+  const fStatus = propertyStatus(status);
 
   return (
     <Col xs={6}>
       <Wrapper status={fStatus}>
-        {pictures.length > 0 ?
-          <Image.PreviewGroup
-            items={pictures}
-          >
+        {pictures.length > 0 ? (
+          <Image.PreviewGroup items={pictures}>
             <Image rootClassName="ratio r-16-9" src={thumb} fallback={fallbackImg} />
           </Image.PreviewGroup>
-          :
+        ) : (
           <Image rootClassName="ratio r-16-9" src={thumb} fallback={fallbackImg} />
-        }
+        )}
         <div className="card-content">
           <Flex gap={6} className="header">
             <MlsIcon />

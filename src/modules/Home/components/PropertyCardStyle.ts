@@ -13,20 +13,20 @@ export const Wrapper = styled.div<IProps>`
   overflow: hidden;
 
   .ant-image {
-		&.ratio {
-			position: relative;
-			width: 100%;
-			overflow: hidden;
-      
-			img {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 100%;
-				height: 100%;
+    &.ratio {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
         transform: translate(-50%, -50%);
-				object-fit: cover;
-			}
+        object-fit: cover;
+      }
       &.ant-image-error {
         background-color: ${theming?.color?.gray5};
         img {
@@ -35,11 +35,11 @@ export const Wrapper = styled.div<IProps>`
           object-fit: contain;
         }
       }
-		}
-		&.r-16-9 {
-			padding-top: 56.25%;
-		}
-	}
+    }
+    &.r-16-9 {
+      padding-top: 56.25%;
+    }
+  }
 
   .header {
     padding: 2px 12px 6px;
