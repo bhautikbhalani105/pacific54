@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { theme } from '../Theme';
+import { theming } from '../Theme';
 import { boxShadow } from './Mixin';
 
 export const Common = createGlobalStyle`
@@ -31,7 +31,7 @@ export const Common = createGlobalStyle`
 
 .shadow-paper {
 	height: 100%;
-	background: ${theme?.color?.white};
+	background: ${theming?.color?.white};
 	padding: 20px;
 	border-radius: 10px;
     ${boxShadow('10px 10px 20px 5px rgba(0, 0, 0, 0.05)')}
@@ -88,19 +88,23 @@ export const Common = createGlobalStyle`
 
 /* Text Colors */
 .text-success {
-    color: ${theme?.color?.success};
+    color: ${theming?.color?.success};
 }
 
 .text-danger {
-    color: ${theme?.color?.danger};
+    color: ${theming?.color?.danger};
 }
 
 .text-warning {
-    color: ${theme?.color?.warning};
+    color: ${theming?.color?.warning};
 }
 
 .text-info {
-    color: ${theme?.color?.info};
+    color: ${theming?.color?.info};
+}
+
+.text-gray7 {
+    color: ${theming?.color?.gray7};
 }
 
 /* Width & Height */

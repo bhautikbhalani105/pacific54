@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 
 import { styled } from 'styled-components';
 
-import { theme } from '../../style/Theme';
+import { theming } from '../../style/Theme';
 
 export const StyledLayout = styled(Layout)`
   --headerHeight: 60px;
@@ -49,13 +49,13 @@ export const StyledLayout = styled(Layout)`
         font-weight: 400;
         font-size: 20px;
         line-height: 26px;
-        color: ${theme?.color?.black};
+        color: ${theming?.color?.black};
       }
 
       .profile-avatar {
         padding: 8px;
-        border: 1px solid ${theme?.color?.black};
-        background-color: ${theme?.color?.white};
+        border: 1px solid ${theming?.color?.black};
+        background-color: ${theming?.color?.white};
       }
     }
 

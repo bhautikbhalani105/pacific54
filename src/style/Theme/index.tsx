@@ -1,4 +1,4 @@
-export const theme = {
+export const theming = {
   color: {
     primary: '#074992',
     // primary: '#42526E',
@@ -18,6 +18,7 @@ export const theme = {
     black: '#000000',
     gray: '#dddddd',
     gray3: '#F4F5F7',
+    gray4: '#EBECF0',
     gray5: '#DFE1E6',
     gray6: '#C1C7D0',
     gray7: '#A5ADBA',

@@ -1,14 +1,18 @@
 export interface DataType {
-  key: React.Key;
+  key: string;
   address: string;
-  daysOnMarket: number;
-  daysToAuction: number;
   beds: number;
   baths: number;
-  sqFt: number;
-  listingPrice: number;
-  estimatedValue: number;
-  estimatedRent: number;
-  roi: number;
   capRate: number;
+  daysOnMarket: number;
+  daysToAuction: number;
+  estimatedRent: number;
+  estimatedValue: number;
+  listingDate: number;
+  listingPrice: number;
+  pictures: string[];
+  roi: number;
+  sqFt: number;
+  status: string;
+  thumb: string;
 }

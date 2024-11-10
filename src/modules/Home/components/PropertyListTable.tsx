@@ -8,11 +8,16 @@ import type { MenuProps } from 'antd';
 import TableAddress from '../../../components/common/Table/TableAddress';
 
 import { DataType } from '../Buy/types';
-import { data } from './DummyData';
 
 const { Text } = Typography;
 
-const PropertyListTable: React.FC = () => {
+interface IProps {
+  data: DataType[];
+}
+
+const PropertyListTable: React.FC<IProps> = (props) => {
+  const { data } = props;
+
   const items: MenuProps['items'] = [
     {
       key: '1',
@@ -51,6 +56,7 @@ const PropertyListTable: React.FC = () => {
     {
       title: 'Address',
       dataIndex: 'address',
+      className: 'pending',
       render: () => <TableAddress />
     },
     {

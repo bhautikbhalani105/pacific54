@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { theme } from '../../../style/Theme';
+import { theming } from '../../../style/Theme';
 
 export const AuthWrapper = styled.section`
   &.authLayout {
@@ -16,7 +16,7 @@ export const AuthWrapper = styled.section`
       width: 100%;
 
       &.authBg {
-        background-color: ${theme?.color?.white};
+        background-color: ${theming?.color?.white};
         border-radius: 10px;
         padding: 40px 30px;
         position: relative;

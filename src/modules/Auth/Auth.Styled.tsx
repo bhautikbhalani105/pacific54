@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { theme } from '../../style/Theme';
+import { theming } from '../../style/Theme';
 
 export const FormTitle = styled.h2`
   margin-bottom: 26px;
@@ -8,6 +8,6 @@ export const FormTitle = styled.h2`
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-family: ${theme?.font?.family?.openSans};
+  font-family: ${theming?.font?.family?.openSans};
   text-align: center;
 `;

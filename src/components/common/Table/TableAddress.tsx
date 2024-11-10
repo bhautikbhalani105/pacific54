@@ -3,16 +3,16 @@ import { Avatar } from 'antd';
 
 import styled from 'styled-components';
 
-import { theme } from '../../../style/Theme';
+import { theming } from '../../../style/Theme';
 
 const Title = styled.h6`
   font-size: 14px;
-  color: ${theme?.color?.primary};
+  color: ${theming?.color?.primary};
 `;
 
 const Paragraph = styled.p`
   font-size: 11px;
-  color: ${theme?.color?.gray7};
+  color: ${theming?.color?.gray7};
 `;
 
 const Wrapper = styled.div`

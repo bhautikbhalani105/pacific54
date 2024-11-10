@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { theme } from '../../style/Theme';
+import { theming } from '../../style/Theme';
 
 export const Reset = createGlobalStyle`
 * {
@@ -25,8 +25,8 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${theme?.color?.light};
-    font-family: ${theme?.font?.family?.openSans};
+    background-color: ${theming?.color?.light};
+    font-family: ${theming?.font?.family?.openSans};
     font-style: normal;
     font-weight: normal;
     line-height: 1.5;
@@ -62,7 +62,7 @@ b {
     font-weight: normal;
     line-height: 1.375;
     letter-spacing: 0;
-    font-family: ${theme?.font?.family?.openSans};
+    font-family: ${theming?.font?.family?.openSans};
     font-weight: 700;
 }
 
@@ -109,13 +109,13 @@ svg {
 }
 
 ::-moz-selection {
-    background: ${theme?.color?.primary};
-    color: ${theme?.color?.white};
+    background: ${theming?.color?.primary};
+    color: ${theming?.color?.white};
 }
 
 ::selection {
-    background: ${theme?.color?.primary};
-    color: ${theme?.color?.white};
+    background: ${theming?.color?.primary};
+    color: ${theming?.color?.white};
 }
 
 .transition {

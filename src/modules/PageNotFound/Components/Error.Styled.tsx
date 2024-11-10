@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { theme } from '../../../style/Theme';
+import { theming } from '../../../style/Theme';
 
 export const Wrapper = styled.section`
   display: flex;
@@ -23,7 +23,7 @@ export const Wrapper = styled.section`
         letter-spacing: 0.1em;
         margin: 0;
         opacity: 0;
-        color: ${theme?.color?.primary};
+        color: ${theming?.color?.primary};
         animation: bounceIn 0.5s ease-in-out;
         animation-fill-mode: forwards;
 
@@ -61,14 +61,14 @@ export const Wrapper = styled.section`
       margin-bottom: 0.3em;
       font-weight: 500;
       font-size: clamp(1.5vw, 26px, 6vw);
-      color: ${theme?.color?.primary};
+      color: ${theming?.color?.primary};
       opacity: 0.8;
     }
     p {
       margin-bottom: 1.2em;
       font-weight: 400;
       font-size: clamp(0.8vw, 16px, 3vw);
-      color: ${theme?.color?.primary};
+      color: ${theming?.color?.primary};
       opacity: 0.6;
     }
   }

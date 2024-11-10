@@ -1,10 +1,10 @@
 import { css } from 'styled-components';
 
-import { theme } from '../../style/Theme';
+import { theming } from '../../style/Theme';
 
-export const responsive = (media: keyof typeof theme.device) => {
+export const responsive = (media: keyof typeof theming.device) => {
   return (styles: TemplateStringsArray | string) => css`
-    @media only screen and (max-width: ${theme?.device[media]}) {
+    @media only screen and (max-width: ${theming?.device[media]}) {
       ${styles}
     }
   `;
