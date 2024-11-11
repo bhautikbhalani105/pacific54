@@ -2816,5 +2816,5 @@ export const data: DataType[] = [
     status: 'reviewed',
     sqFt: 1111,
     thumb: ''
-  },
+  }
 ];

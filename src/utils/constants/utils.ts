@@ -1,7 +1,7 @@
+import { TablePaginationConfig } from 'antd';
 import dayjs from 'dayjs';
 
 import { toAbsoluteUrl } from '../functions';
-import { TablePaginationConfig } from 'antd';
 
 export function formatPrice(number: number, format: string = 'indian') {
   const locale = format === 'international' ? 'en-US' : 'en-IN';
