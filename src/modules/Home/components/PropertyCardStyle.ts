@@ -2,15 +2,60 @@ import styled from 'styled-components';
 
 import { theming } from '../../../style/Theme';
 
-interface IProps {
-  status: string;
-}
-export const Wrapper = styled.div<IProps>`
+export const Wrapper = styled.div`
   background: ${theming?.color?.white};
   border: 1px solid ${theming?.color?.gray4};
-  border-bottom: 5px solid ${(props) => props.status};
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
+  border-bottom: 5px solid #e3e3e3;
+
+  &.pending {
+    --status: #998dd9;
+    border-bottom-color: var(--status);
+  }
+  &.offerSent {
+    --status: #00a3bf;
+    border-bottom-color: var(--status);
+  }
+  &.underContract {
+    --status: #57d9a3;
+    border-bottom-color: var(--status);
+  }
+  &.bidReady {
+    --status: #ff991f;
+    border-bottom-color: var(--status);
+  }
+  &.reviewed {
+    --status: ${theming?.color?.gray9};
+    border-bottom-color: #e3e3e3;
+  }
+
+  .ant-checkbox-wrapper {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 9;
+
+    .ant-checkbox-inner,
+    &:hover {
+      .ant-checkbox-inner {
+        border-color: ${theming?.color?.gray5};
+        background-color: ${theming?.color?.white};
+      }
+    }
+
+    .ant-checkbox-inner {
+      border-color: ${theming?.color?.gray5};
+      background-color: ${theming?.color?.white};
+    }
+
+    .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner,
+    .ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+      background-color: var(--status);
+      border-color: var(--status);
+    }
+  }
 
   .ant-image {
     &.ratio {
@@ -27,8 +72,10 @@ export const Wrapper = styled.div<IProps>`
         transform: translate(-50%, -50%);
         object-fit: cover;
       }
+
       &.ant-image-error {
         background-color: ${theming?.color?.gray5};
+
         img {
           width: auto;
           height: auto;
@@ -36,6 +83,7 @@ export const Wrapper = styled.div<IProps>`
         }
       }
     }
+
     &.r-16-9 {
       padding-top: 56.25%;
     }

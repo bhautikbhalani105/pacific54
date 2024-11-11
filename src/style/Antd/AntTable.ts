@@ -15,22 +15,27 @@ export const AntTable = createGlobalStyle`
 			td.ant-table-cell {
 				border: 0;
 				&.status {
-					padding: 0;
+					padding-left: 0;
 				}
-				&.pending {
-					border-left: 5px solid #998DD9;
+				.pending {
+					--status: #998DD9;
+    			border-left: 5px solid var(--status);
 				}
-				&.offer-sent {
-					border-left: 5px solid #998DD9;
+				.offerSent {
+					--status: #00A3BF;
+    			border-left: 5px solid var(--status);
 				}
-				&.under-contract {
-					border-left: 5px solid #998DD9;
+				.underContract {
+					--status: #57D9A3;
+    			border-left: 5px solid var(--status);
 				}
-				&.bid-ready {
-					border-left: 5px solid #998DD9;
+				.bidReady {
+					--status: #FF991F;
+    			border-left: 5px solid var(--status);
 				}
-				&.reviewed {
-					border-left: 5px solid #998DD9;
+				.reviewed {
+					--status: ${theming?.color?.gray9};
+    			border-left: 5px solid #E3E3E3;
 				}
 			}
 		}

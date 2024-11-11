@@ -123,5 +123,11 @@ export const Common = createGlobalStyle`
 .h-100vh {
     min-height: 100vh;
 }
+.separate-paginaion {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: 0;
+    justify-content: flex-end;
+}
 
 `;

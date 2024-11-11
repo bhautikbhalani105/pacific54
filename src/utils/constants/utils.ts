@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 
 import { toAbsoluteUrl } from '../functions';
+import { TablePaginationConfig } from 'antd';
 
 export function formatPrice(number: number, format: string = 'indian') {
   const locale = format === 'international' ? 'en-US' : 'en-IN';
@@ -30,18 +31,29 @@ export function getDaysDiff(liDate: number) {
 export function propertyStatus(color: string) {
   switch (color) {
     case 'pending':
-      return '#998DD9';
+      return 'pending';
     case 'offerSent':
-      return '#00A3BF';
+      return 'offerSent';
     case 'underContract':
-      return '#57D9A3';
+      return 'underContract';
     case 'bidReady':
-      return '#FF991F';
+      return 'bidReady';
     case 'reviewed':
-      return '#E3E3E3';
+      return 'reviewed';
     default:
-      return '#E3E3E3';
+      return 'reviewed';
   }
 }
 
 export const fallbackImg = toAbsoluteUrl('/Images/Svg/fallback-img.svg');
+export const avatarFallbackImg = toAbsoluteUrl('/Images/Svg/fallback-avatar.svg');
+
+export const defaultPagination: Partial<TablePaginationConfig> = {
+  showSizeChanger: true,
+  showQuickJumper: true,
+  defaultPageSize: 10,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  size: 'small',
+  position: ['bottomRight'],
+  showTotal: (total: number) => `Total ${total} items`
+};

@@ -17,6 +17,7 @@ export const theming = {
     white: '#ffffff',
     black: '#000000',
     gray: '#dddddd',
+    gray2: '#FAFBFC',
     gray3: '#F4F5F7',
     gray4: '#EBECF0',
     gray5: '#DFE1E6',

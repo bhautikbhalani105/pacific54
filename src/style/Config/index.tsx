@@ -96,6 +96,9 @@ const ThemeConfig = ({ children }: any) => {
           },
           Image: {
             colorBgContainerDisabled: `${theming?.color?.danger}`
+          },
+          Checkbox: {
+            borderRadiusSM: 2
           }
         }
       }}

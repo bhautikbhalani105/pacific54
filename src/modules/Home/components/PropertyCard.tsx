@@ -1,4 +1,7 @@
-import { Button, Col, Divider, Flex, Image, Typography } from 'antd';
+import { useState } from 'react';
+
+import { Button, Checkbox, Col, Divider, Flex, Image, Typography } from 'antd';
+import type { CheckboxProps } from 'antd';
 
 import { fallbackImg, getDaysDiff, nunSign, propertyStatus } from '../../../utils/constants/utils';
 
@@ -6,6 +9,10 @@ import { BedIcon, MlsIcon, ShowerIcon, Straighten } from '../../../svg';
 import { Wrapper } from './PropertyCardStyle';
 
 const { Text, Title } = Typography;
+
+const onChange: CheckboxProps['onChange'] = (e) => {
+  console.log(`checked = ${e.target.checked}`);
+};
 
 interface IProps {
   address: string;
@@ -38,6 +45,8 @@ const PropertyCard: React.FC<IProps> = (props) => {
     thumb
   } = props;
 
+  const [visible, setVisible] = useState(false);
+
   const area = Intl.NumberFormat('en-US').format(sqFt);
   const daysCount = getDaysDiff(liDate);
   const fCapRate = nunSign(capRate, '%');
@@ -48,14 +57,19 @@ const PropertyCard: React.FC<IProps> = (props) => {
 
   return (
     <Col xs={6}>
-      <Wrapper status={fStatus}>
-        {pictures.length > 0 ? (
-          <Image.PreviewGroup items={pictures}>
-            <Image rootClassName="ratio r-16-9" src={thumb} fallback={fallbackImg} />
-          </Image.PreviewGroup>
-        ) : (
-          <Image rootClassName="ratio r-16-9" src={thumb} fallback={fallbackImg} />
-        )}
+      <Wrapper className={fStatus}>
+        <Checkbox onChange={onChange}></Checkbox>
+        <Image.PreviewGroup
+          items={pictures}
+          preview={{
+            visible,
+            onVisibleChange: (value) => {
+              setVisible(value);
+            }
+          }}
+        >
+          <Image rootClassName="ratio r-16-9" preview={false} src={thumb} fallback={fallbackImg} />
+        </Image.PreviewGroup>
         <div className="card-content">
           <Flex gap={6} className="header">
             <MlsIcon />
@@ -65,7 +79,7 @@ const PropertyCard: React.FC<IProps> = (props) => {
           <div className="main">
             <Flex gap={6} align="center" justify="space-between" className="price">
               <Title level={3}>${fEstValue}</Title>
-              <Button>Preview</Button>
+              <Button onClick={() => setVisible(true)}>Preview</Button>
             </Flex>
             <p>{address}</p>
             <Flex gap={16} className="amenities">
@@ -99,7 +113,7 @@ const PropertyCard: React.FC<IProps> = (props) => {
               </div>
               <div className="details">
                 <p className="bid">${fEstRent}</p>
-                <p className="heading">Estimated rent</p>
+                <p className="heading">Estimated Rent</p>
               </div>
             </Flex>
           </div>

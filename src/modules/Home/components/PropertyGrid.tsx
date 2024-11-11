@@ -1,13 +1,18 @@
 import React from 'react';
 
-import { Row } from 'antd';
+import { Pagination, Row } from 'antd';
 
 import { DataType } from '../Buy/types';
 import PropertyCard from './PropertyCard';
+import type { PaginationProps } from 'antd';
 
 interface IProps {
   data: DataType[];
 }
+
+const onChange: PaginationProps['onChange'] = (pageNumber) => {
+  console.log('Page: ', pageNumber);
+};
 
 const PropertyGrid: React.FC<IProps> = ({ data }) => {
   return (
@@ -33,6 +38,7 @@ const PropertyGrid: React.FC<IProps> = ({ data }) => {
           </>
         ))}
       </Row>
+      <Pagination className="separate-paginaion" size="small" responsive={true} showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
     </>
   );
 };

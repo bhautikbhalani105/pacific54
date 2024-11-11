@@ -1,5 +1,6 @@
-import { UserOutlined } from '@ant-design/icons';
 import { Avatar } from 'antd';
+
+import { avatarFallbackImg } from '../../../utils/constants/utils';
 
 import styled from 'styled-components';
 
@@ -22,6 +23,8 @@ const Wrapper = styled.div`
   column-gap: 10px;
   .ant-avatar {
     min-width: 32px;
+    background-color: ${theming?.color?.gray2};
+    margin-left: 6px;
   }
   .vertical {
     display: flex;
@@ -30,11 +33,16 @@ const Wrapper = styled.div`
   }
 `;
 
-const TableAddress: React.FC = () => {
+interface IProps {
+  status: string;
+  thumb: string;
+}
+
+const TableAddress: React.FC<IProps> = ({ status, thumb }) => {
   return (
     <>
-      <Wrapper>
-        <Avatar icon={<UserOutlined />} size={32} />
+      <Wrapper className={status}>
+        <Avatar src={thumb ? thumb : avatarFallbackImg} size={32} />
         <div className="vertical">
           <Title>4517 Washington Ave.</Title>
           <Paragraph>North Miami, FL 33181</Paragraph>

@@ -5,6 +5,8 @@ import { Dropdown, Rate, Table, Typography } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 import type { MenuProps } from 'antd';
 
+import { defaultPagination, nunSign, propertyStatus } from '../../../utils/constants/utils';
+
 import TableAddress from '../../../components/common/Table/TableAddress';
 
 import { DataType } from '../Buy/types';
@@ -56,8 +58,10 @@ const PropertyListTable: React.FC<IProps> = (props) => {
     {
       title: 'Address',
       dataIndex: 'address',
-      className: 'pending',
-      render: () => <TableAddress />
+      className: 'status',
+      render: (_, record) => (
+        <TableAddress thumb={record.thumb} status={propertyStatus(record.status)} />
+      )
     },
     {
       title: 'Days on market',
@@ -126,9 +130,10 @@ const PropertyListTable: React.FC<IProps> = (props) => {
     {
       title: 'ROI',
       dataIndex: 'roi',
+      width: 60,
       render: (_) => (
         <Text type={`${_ >= 0 ? 'success' : 'danger'}`} strong>
-          {_}
+          {nunSign(_, '%')}
         </Text>
       ),
       sorter: {
@@ -139,9 +144,10 @@ const PropertyListTable: React.FC<IProps> = (props) => {
     {
       title: 'Cap Rate',
       dataIndex: 'capRate',
+      width: 76,
       render: (_) => (
         <Text type={`${_ >= 0 ? 'success' : 'danger'}`} strong>
-          {_}
+          {nunSign(_, '%')}
         </Text>
       ),
       sorter: {
@@ -170,7 +176,14 @@ const PropertyListTable: React.FC<IProps> = (props) => {
   const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
   };
-  return <Table<DataType> columns={columns} dataSource={data} onChange={onChange} />;
+  return (
+    <Table<DataType>
+      columns={columns}
+      dataSource={data}
+      pagination={{ ...defaultPagination }}
+      onChange={onChange}
+    />
+  );
 };
 
 export default PropertyListTable;
