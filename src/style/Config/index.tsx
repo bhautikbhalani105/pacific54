@@ -71,6 +71,18 @@ const ThemeConfig = ({ children }: any) => {
             colorError: `${theming?.color?.danger}`,
             lineHeight: 2
           },
+          Button: {
+            defaultHoverBg: `${theming?.color?.gray8}`,
+            defaultColor: `${theming?.color?.gray8}`,
+            defaultHoverColor: `${theming?.color?.white}`,
+            defaultBorderColor: `${theming?.color?.gray5}`,
+            defaultHoverBorderColor: `${theming?.color?.gray8}`
+          },
+          Input: {
+            colorBorder: `${theming?.color?.gray5}`,
+            borderRadius: 6,
+            colorTextPlaceholder: `${theming?.color?.gray8}`
+          },
           Table: {
             borderColor: `${theming?.color?.gray5}`,
             cellFontSizeSM: 14,

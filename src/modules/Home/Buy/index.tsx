@@ -1,7 +1,13 @@
 import React from 'react';
 
-import { AppstoreOutlined, BarsOutlined, DownOutlined } from '@ant-design/icons';
-import { Button, Divider, Dropdown, Flex, Segmented, Space, Typography, theme } from 'antd';
+import {
+  AppstoreOutlined,
+  BarsOutlined,
+  DownOutlined,
+  EnvironmentOutlined,
+  FilterOutlined
+} from '@ant-design/icons';
+import { Button, Divider, Dropdown, Flex, Input, Segmented, Space, Typography, theme } from 'antd';
 import type { MenuProps } from 'antd';
 
 import { toAbsoluteUrl } from '../../../utils/functions';
@@ -16,6 +22,7 @@ import { Wrapper } from './style';
 
 const { useToken } = theme;
 const { Text } = Typography;
+const { Search } = Input;
 
 const HomeBuy = () => {
   const { token } = useToken();
@@ -64,6 +71,16 @@ const HomeBuy = () => {
     <>
       <Meta title="Pecific54 - Property list" />
       <Wrapper>
+        <Flex justify="space-between" className="mb-20">
+          <Space>
+            <Space.Compact>
+              <Search placeholder="Search properties..." allowClear />
+            </Space.Compact>
+            <Button icon={<EnvironmentOutlined />}>Map</Button>
+            <Button icon={<FilterOutlined />}>Filters</Button>
+          </Space>
+          <Button type="primary">Add Property</Button>
+        </Flex>
         <div className="map-box">
           <img src={toAbsoluteUrl('/Images/Svg/map.svg')} alt="" />
         </div>

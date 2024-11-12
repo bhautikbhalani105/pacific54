@@ -23,6 +23,7 @@ export const theming = {
     gray5: '#DFE1E6',
     gray6: '#C1C7D0',
     gray7: '#A5ADBA',
+    gray8: '#8993A4',
     gray9: '#6B778C',
     grayLight: '#d3d3d34c',
 
