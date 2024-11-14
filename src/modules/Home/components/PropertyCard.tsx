@@ -1,11 +1,12 @@
-import { useState } from 'react';
-
 import { Button, Checkbox, Col, Divider, Flex, Image, Typography } from 'antd';
 import type { CheckboxProps } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
+import { ROUTES } from '../../../utils/constants/routes';
 import { fallbackImg, getDaysDiff, nunSign, propertyStatus } from '../../../utils/constants/utils';
 
-import { BedIcon, MlsIcon, ShowerIcon, Straighten } from '../../../svg';
+import { MlsIcon } from '../../../svg';
+import Amenities from './Amenities';
 import { Wrapper } from './PropertyCardStyle';
 
 const { Text, Title } = Typography;
@@ -19,6 +20,7 @@ interface IProps {
   beds: number;
   baths: number;
   capRate: number;
+  endUrl: string;
   estRent: number;
   estValue: number;
   liDate: number;
@@ -35,6 +37,7 @@ const PropertyCard: React.FC<IProps> = (props) => {
     beds,
     baths,
     capRate,
+    endUrl,
     estRent,
     estValue,
     liDate,
@@ -45,7 +48,7 @@ const PropertyCard: React.FC<IProps> = (props) => {
     thumb
   } = props;
 
-  const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   const area = Intl.NumberFormat('en-US').format(sqFt);
   const daysCount = getDaysDiff(liDate);
@@ -59,16 +62,13 @@ const PropertyCard: React.FC<IProps> = (props) => {
     <Col xs={6}>
       <Wrapper className={fStatus}>
         <Checkbox onChange={onChange}></Checkbox>
-        <Image.PreviewGroup
-          items={pictures}
-          preview={{
-            visible,
-            onVisibleChange: (value) => {
-              setVisible(value);
-            }
-          }}
-        >
-          <Image rootClassName="ratio r-16-9" preview={false} src={thumb} fallback={fallbackImg} />
+        <Image.PreviewGroup items={pictures} preview={true}>
+          <Image
+            rootClassName="ratio r-16-9"
+            preview={Array.isArray(pictures) && pictures.length > 0}
+            src={thumb}
+            fallback={fallbackImg}
+          />
         </Image.PreviewGroup>
         <div className="card-content">
           <Flex gap={6} className="header">
@@ -79,23 +79,10 @@ const PropertyCard: React.FC<IProps> = (props) => {
           <div className="main">
             <Flex gap={6} align="center" justify="space-between" className="price">
               <Title level={3}>${fEstValue}</Title>
-              <Button onClick={() => setVisible(true)}>Preview</Button>
+              <Button onClick={() => navigate(`${ROUTES.buyView}/${endUrl}`)}>Preview</Button>
             </Flex>
             <p>{address}</p>
-            <Flex gap={16} className="amenities">
-              <Flex gap={4} align="center">
-                <BedIcon />
-                <p>{beds}bds</p>
-              </Flex>
-              <Flex gap={4} align="center">
-                <ShowerIcon />
-                <p>{baths}ba</p>
-              </Flex>
-              <Flex gap={4} align="center">
-                <Straighten />
-                <p>{area} sqft</p>
-              </Flex>
-            </Flex>
+            <Amenities beds={beds} baths={baths} area={area} />
           </div>
           <div className="footer">
             <Flex>

@@ -7,8 +7,19 @@ import {
   EnvironmentOutlined,
   FilterOutlined
 } from '@ant-design/icons';
-import { Button, Divider, Dropdown, Flex, Input, Segmented, Space, Typography, theme } from 'antd';
-import type { MenuProps } from 'antd';
+import {
+  Button,
+  Divider,
+  Dropdown,
+  Flex,
+  Input,
+  Segmented,
+  Space,
+  Tabs,
+  Typography,
+  theme
+} from 'antd';
+import type { MenuProps, TabsProps } from 'antd';
 
 import { toAbsoluteUrl } from '../../../utils/functions';
 
@@ -67,6 +78,21 @@ const HomeBuy = () => {
     }
   ];
 
+  const view: TabsProps['items'] = [
+    {
+      key: 'list',
+      label: null,
+      icon: <BarsOutlined />,
+      children: <PropertyListTable data={data} />
+    },
+    {
+      key: 'grid',
+      label: null,
+      icon: <AppstoreOutlined />,
+      children: <PropertyGrid data={data} />
+    }
+  ];
+
   return (
     <>
       <Meta title="Pecific54 - Property list" />
@@ -119,8 +145,9 @@ const HomeBuy = () => {
               defaultValue={propertyView}
             />
           </Flex>
-          {propertyView === 'list' && <PropertyListTable data={data} />}
-          {propertyView === 'grid' && <PropertyGrid data={data} />}
+          <Tabs defaultActiveKey={propertyView} items={view} onChange={toggleView} />
+          {/* {propertyView === 'list' && <PropertyListTable data={data} />}
+          {propertyView === 'grid' && <PropertyGrid data={data} />} */}
         </div>
       </Wrapper>
     </>

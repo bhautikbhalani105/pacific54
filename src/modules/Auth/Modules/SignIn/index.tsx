@@ -26,7 +26,7 @@ const SignIn: React.FC = () => {
         password: '123456'
       });
       actions.authSuccess(res);
-      navigate(ROUTES.dashboard);
+      navigate(ROUTES.buy);
     } catch (error) {
       console.log('error: ', error);
       alert((error as Error)?.message);
@@ -34,7 +34,7 @@ const SignIn: React.FC = () => {
   }, [navigate, actions]);
 
   if (isLoggedIn) {
-    return <Navigate to={ROUTES.dashboard} />;
+    return <Navigate to={ROUTES.buy} />;
   }
 
   return (

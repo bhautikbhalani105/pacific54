@@ -90,7 +90,7 @@ export const Wrapper = styled.div`
   }
 
   .header {
-    padding: 2px 12px 6px;
+    padding: 4px 12px 6px;
   }
 
   .ant-divider {
@@ -122,16 +122,6 @@ export const Wrapper = styled.div`
 
   .main {
     padding: 8px 12px 0;
-  }
-
-  .amenities {
-    padding: 12px 0;
-
-    p {
-      font-size: 12px;
-      line-height: 16px;
-      color: ${theming?.color?.gray9};
-    }
   }
 
   .footer {

@@ -15,6 +15,7 @@ const SignUp = lazy(() => import('../modules/Auth/Modules/SignUp'));
 const ForgotPassword = lazy(() => import('../modules/Auth/Modules/ForgotPassword'));
 const ChangePassword = lazy(() => import('../modules/Auth/Modules/ChangePassword'));
 const HomeBuy = lazy(() => import('../modules/Home/Buy'));
+const PropertyView = lazy(() => import('../modules/Home/Buy/View'));
 const MyAccount = lazy(() => import('../modules/MyAccount'));
 const UserList = lazy(() => import('../modules/UserManagement'));
 const UserView = lazy(() => import('../modules/UserManagement/ViewUser'));
@@ -38,8 +39,12 @@ const Routing = () => {
       >
         <Route path={ROUTES.pageNotFound} element={<PageNotFound />} />
         <Route path={ROUTES.changePassword} element={<ChangePassword />} />
-        <Route path={ROUTES.dashboard} element={<HomeBuy />} />
         <Route path={ROUTES.myAccount} element={<MyAccount />} />
+        <Route path={ROUTES.buy} element={<Outlet />}>
+          <Route path={ROUTES.buy} element={<HomeBuy />} />
+          <Route path={`${ROUTES.buyView}/:id`} element={<PropertyView />} />
+          <Route path="*" element={<Navigate to={ROUTES.buy} replace={true} />} />
+        </Route>
         <Route path={ROUTES.userManagement} element={<Outlet />}>
           <Route path={ROUTES.userManagement} element={<UserList />} />
           <Route path={`${ROUTES.userView}/:id`} element={<UserView />} />
@@ -49,7 +54,7 @@ const Routing = () => {
         <Route path={ROUTES.termsAndConditions} element={<TermsAndCondition />} />
         <Route path={ROUTES.privacyPolicy} element={<PrivacyPolicy />} />
         <Route path={ROUTES.reactQueryDemo} element={<ReactQueryDemo />} />
-        <Route path={ROUTES.default} element={<Navigate replace to={ROUTES.dashboard} />} />
+        <Route path={ROUTES.default} element={<Navigate replace to={ROUTES.buy} />} />
         <Route path="*" element={<Navigate replace to={ROUTES.pageNotFound} />} />
       </Route>
       <Route path="*" element={<Navigate replace to={ROUTES.default} />} />

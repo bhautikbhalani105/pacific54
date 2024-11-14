@@ -36,7 +36,7 @@ function createMenuItem(
 }
 
 const items = [
-  createMenuItem(ROUTES.dashboard, 'Dashboard', '1', <DashboardOutlined />),
+  createMenuItem(ROUTES.buy, 'Dashboard', '1', <DashboardOutlined />),
   createMenuItem(ROUTES.userManagement, 'User Management', '2', <UserOutlined />),
   createMenuItem(ROUTES.reactQueryDemo, 'React query Demo', '3', <UserOutlined />),
   createMenuItem(
