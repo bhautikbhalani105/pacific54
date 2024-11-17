@@ -16,3 +16,20 @@ export interface DataType {
   status: string;
   thumb: string;
 }
+
+export interface CompareDataType {
+  key: string;
+  address: string;
+  salePrice: number;
+  saleDate: number;
+  distance: number;
+  beds: number;
+  baths: number;
+  sqFt: number;
+  lotSize: number;
+  yearBuilt: number;
+  source: string;
+  edit?: string;
+  delete?: string;
+  thumb: string;
+}

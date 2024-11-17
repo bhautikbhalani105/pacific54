@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 `;
 
 interface IProps {
-  status: string;
+  status?: string;
   thumb: string;
 }
 

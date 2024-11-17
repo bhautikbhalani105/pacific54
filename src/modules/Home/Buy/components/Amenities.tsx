@@ -4,8 +4,8 @@ import { Flex } from 'antd';
 
 import styled from 'styled-components';
 
-import { theming } from '../../../style/Theme';
-import { BedIcon, ShowerIcon, Straighten } from '../../../svg';
+import { theming } from '../../../../style/Theme';
+import { BedIcon, ShowerIcon, Straighten } from '../../../../svg';
 
 interface IProps {
   beds: number;

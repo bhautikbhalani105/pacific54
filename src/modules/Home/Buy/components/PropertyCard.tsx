@@ -2,10 +2,15 @@ import { Button, Checkbox, Col, Divider, Flex, Image, Typography } from 'antd';
 import type { CheckboxProps } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
-import { ROUTES } from '../../../utils/constants/routes';
-import { fallbackImg, getDaysDiff, nunSign, propertyStatus } from '../../../utils/constants/utils';
+import { ROUTES } from '../../../../utils/constants/routes';
+import {
+  fallbackImg,
+  getDaysDiff,
+  nunSign,
+  propertyStatus
+} from '../../../../utils/constants/utils';
 
-import { MlsIcon } from '../../../svg';
+import { MlsIcon } from '../../../../svg';
 import Amenities from './Amenities';
 import { Wrapper } from './PropertyCardStyle';
 

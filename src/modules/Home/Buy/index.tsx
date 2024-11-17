@@ -21,12 +21,11 @@ import {
 } from 'antd';
 import type { MenuProps, TabsProps } from 'antd';
 
-import { toAbsoluteUrl } from '../../../utils/functions';
-
 import Meta from '../../../components/common/Meta';
-import { data } from '../components/DummyData';
-import PropertyGrid from '../components/PropertyGrid';
-import PropertyListTable from '../components/PropertyListTable';
+import { data } from './components/DummyData';
+import MapBox from './components/MapBox';
+import PropertyGrid from './components/PropertyGrid';
+import PropertyListTable from './components/PropertyListTable';
 
 import { useViewStore } from '../../../services/store/propertyView';
 import { Wrapper } from './style';
@@ -107,9 +106,7 @@ const HomeBuy = () => {
           </Space>
           <Button type="primary">Add Property</Button>
         </Flex>
-        <div className="map-box">
-          <img src={toAbsoluteUrl('/Images/Svg/map.svg')} alt="" />
-        </div>
+        <MapBox />
         <div className="property list">
           <Flex align="center" justify="space-between" className="property-header">
             <Space>

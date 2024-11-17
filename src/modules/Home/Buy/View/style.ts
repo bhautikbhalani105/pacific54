@@ -16,19 +16,15 @@ export const Wrapper = styled.div`
 
   .valuations {
     border-top: 1px solid ${theming?.color?.gray5};
+  }
 
-    .card {
-      padding: 8px 14px;
-      p {
-        font-size: 12px;
-        line-height: 16px;
-        color: ${theming?.color?.gray8};
-      }
-      h4 {
-        font-size: 20px;
-        line-height: 28px;
-        color: ${theming?.color?.textTitle};
-      }
+  .location {
+    margin-top: 16px;
+  }
+
+  .detail-card {
+    + .tab-card {
+      margin-top: 48px;
     }
   }
 `;

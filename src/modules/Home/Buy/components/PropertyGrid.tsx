@@ -3,7 +3,7 @@ import React from 'react';
 import { Pagination, Row } from 'antd';
 import type { PaginationProps } from 'antd';
 
-import { DataType } from '../Buy/types';
+import { DataType } from '../types';
 import PropertyCard from './PropertyCard';
 
 interface IProps {

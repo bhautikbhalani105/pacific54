@@ -5,11 +5,11 @@ import { Dropdown, Rate, Table, Typography } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 import type { MenuProps } from 'antd';
 
-import { defaultPagination, nunSign, propertyStatus } from '../../../utils/constants/utils';
+import { defaultPagination, nunSign, propertyStatus } from '../../../../utils/constants/utils';
 
-import TableAddress from '../../../components/common/Table/TableAddress';
+import TableAddress from '../../../../components/common/Table/TableAddress';
 
-import { DataType } from '../Buy/types';
+import { DataType } from '../types';
 
 const { Text } = Typography;
 
@@ -109,7 +109,8 @@ const PropertyListTable: React.FC<IProps> = (props) => {
       sorter: {
         compare: (a, b) => a.listingPrice - b.listingPrice,
         multiple: 1
-      }
+      },
+      render: (_) => `$${_}`
     },
     {
       title: 'Estimated value',
@@ -117,7 +118,8 @@ const PropertyListTable: React.FC<IProps> = (props) => {
       sorter: {
         compare: (a, b) => a.estimatedValue - b.estimatedValue,
         multiple: 1
-      }
+      },
+      render: (_) => `$${_}`
     },
     {
       title: 'Estimated rent',
@@ -125,7 +127,8 @@ const PropertyListTable: React.FC<IProps> = (props) => {
       sorter: {
         compare: (a, b) => a.estimatedRent - b.estimatedRent,
         multiple: 1
-      }
+      },
+      render: (_) => `$${_}`
     },
     {
       title: 'ROI',

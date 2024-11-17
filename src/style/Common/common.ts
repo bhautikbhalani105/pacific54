@@ -130,4 +130,34 @@ export const Common = createGlobalStyle`
     justify-content: flex-end;
 }
 
+    .ant-typography.card-heading {
+        margin: 24px 0 16px;
+    }
+
+    .tab-card .ant-tabs-nav {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        margin: 0;
+
+        &::before {
+            content: none;
+        }
+
+        .ant-tabs-nav-wrap {
+            flex: none;
+        }
+        .ant-tabs-nav-operations {
+            display: none;
+        }
+        .ant-tabs-extra-content .ant-typography {
+            margin: 0;
+        }
+    }
+
+    .b-t-1-solid-gray5 {
+        border-top: 1px solid ${theming?.color?.gray5};
+    }
+    .b-b-1-solid-gray5 {
+        border-bottom: 1px solid ${theming?.color?.gray5};
+    }
 `;

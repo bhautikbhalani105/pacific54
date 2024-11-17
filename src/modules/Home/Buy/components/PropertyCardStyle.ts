@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { theming } from '../../../style/Theme';
+import { theming } from '../../../../style/Theme';
 
 export const Wrapper = styled.div`
   background: ${theming?.color?.white};

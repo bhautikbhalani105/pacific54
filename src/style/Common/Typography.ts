@@ -33,7 +33,9 @@ h6 {
 }
 
 p {
-    font-size: 18px;
+    font-size: 13px;
+    line-height: 18px;
+    color: ${theming?.color?.textTitle};
 }
 
 ${responsive('sm')`
