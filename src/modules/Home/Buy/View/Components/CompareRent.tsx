@@ -2,13 +2,13 @@ import { AppstoreOutlined, BarsOutlined, EnvironmentOutlined } from '@ant-design
 import { Button, Card, Flex, Input, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
-import ComparePropList from '../components/ComparePropList';
-import { compareData } from '../components/DummyData';
-import ValuationCard from '../components/ValuationCard';
+import { compareData } from '../../components/DummyData';
+import ValuationCard from '../../components/ValuationCard';
 import styled from 'styled-components';
 
-import { useViewStore } from '../../../../services/store/propertyView';
-import { theming } from '../../../../style/Theme';
+import { useViewStore } from '../../../../../services/store/propertyView';
+import { theming } from '../../../../../style/Theme';
+import ComparePropList from './ComparePropList';
 
 const { Search } = Input;
 
@@ -22,7 +22,7 @@ const Label = styled.label`
   display: inline-block;
 `;
 
-const Sales = () => {
+const CompareRent: React.FC = () => {
   const { propertyView, toggleView } = useViewStore();
 
   const view: TabsProps['items'] = [
@@ -88,4 +88,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export default CompareRent;

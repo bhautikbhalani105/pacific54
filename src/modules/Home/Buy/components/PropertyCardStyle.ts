@@ -9,6 +9,7 @@ export const Wrapper = styled.div`
   overflow: hidden;
   position: relative;
   border-bottom: 5px solid #e3e3e3;
+  width: 100%;
 
   &.pending {
     --status: #998dd9;

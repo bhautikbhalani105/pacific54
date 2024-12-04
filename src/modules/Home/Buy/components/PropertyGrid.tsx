@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Pagination, Row } from 'antd';
+import { Col, Pagination, Row } from 'antd';
 import type { PaginationProps } from 'antd';
 
 import { DataType } from '../types';
@@ -19,22 +19,24 @@ const PropertyGrid: React.FC<IProps> = ({ data }) => {
     <>
       <Row gutter={[16, 16]}>
         {data.map((card) => (
-          <PropertyCard
-            key={card.key}
-            endUrl={card.key}
-            address={card.address}
-            beds={card.beds}
-            baths={card.baths}
-            capRate={card.capRate}
-            estRent={card.estimatedRent}
-            estValue={card.estimatedValue}
-            liDate={card.listingDate}
-            pictures={card.pictures}
-            status={card.status}
-            sqFt={card.sqFt}
-            roi={card.roi}
-            thumb={card.thumb}
-          />
+          <Col xs={6}>
+            <PropertyCard
+              key={card.key}
+              endUrl={card.key}
+              address={card.address}
+              beds={card.beds}
+              baths={card.baths}
+              capRate={card.capRate}
+              estRent={card.estimatedRent}
+              estValue={card.estimatedValue}
+              liDate={card.listingDate}
+              pictures={card.pictures}
+              status={card.status}
+              sqFt={card.sqFt}
+              roi={card.roi}
+              thumb={card.thumb}
+            />
+          </Col>
         ))}
       </Row>
       <Pagination

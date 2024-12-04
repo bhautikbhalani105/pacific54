@@ -1,3 +1,5 @@
+import { AntButton } from './AntButton';
+import { AntCard } from './AntCard';
 import { AntDropdown } from './AntDropdown';
 import { AntImage } from './AntImage';
 import { AntTable } from './AntTable';
@@ -8,6 +10,8 @@ const AntdStyle = () => {
       <AntDropdown />
       <AntTable />
       <AntImage />
+      <AntButton />
+      <AntCard />
     </>
   );
 };

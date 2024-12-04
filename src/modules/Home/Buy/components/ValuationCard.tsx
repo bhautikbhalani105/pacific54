@@ -31,7 +31,12 @@ const ValuationCard: React.FC<IProps> = ({
       <p>
         {valHeading} <InfoCircleFilled />
       </p>
-      {mainVal && <h4>${mainVal}</h4>}
+      {mainVal && (
+        <h4>
+          {typeof mainVal === 'number' && '$'}
+          {mainVal}
+        </h4>
+      )}
       {mainSignVal && (
         <Text type={`${mainSignVal >= 0 ? 'success' : 'danger'}`} style={{ fontSize: 20 }} strong>
           {nunSign(mainSignVal, '%')}
@@ -42,7 +47,12 @@ const ValuationCard: React.FC<IProps> = ({
           {highLow[0]}-{highLow[1]}
         </p>
       )}
-      {rateVal && <p className="high-low">${rateVal}</p>}
+      {rateVal && (
+        <p className="high-low">
+          {typeof mainVal === 'number' && '$'}
+          {rateVal}
+        </p>
+      )}
       {incRate && (
         <Text type={`${incRate >= 0 ? 'success' : 'danger'}`} style={{ fontSize: 12 }} strong>
           {nunSign(incRate, '%')}

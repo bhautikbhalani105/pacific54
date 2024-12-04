@@ -13,12 +13,10 @@ export interface IPropertyDetail {
   shortSale: boolean;
   pool: boolean;
   parking: string;
-  // mlsStatusInc: number;
 }
 
 type Action = {
   toggleType: <K extends keyof IPropertyDetail>(key: K, value: IPropertyDetail[K]) => void;
-  // mlsStatusIncFn: () => void;
 };
 
 export const usePropertyDetail = create<IPropertyDetail & Action>((set) => {
@@ -35,8 +33,6 @@ export const usePropertyDetail = create<IPropertyDetail & Action>((set) => {
     shortSale: false,
     pool: false,
     parking: '',
-    // mlsStatusInc: 0,
-    // mlsStatusIncFn: () => set((state) => ({ mlsStatusInc: state.mlsStatusInc + 1 })),
     toggleType: (key, value) =>
       set((state) => ({
         ...state,

@@ -111,6 +111,9 @@ const ThemeConfig = ({ children }: any) => {
           },
           Checkbox: {
             borderRadiusSM: 2
+          },
+          Collapse: {
+            colorBorder: `${theming?.color?.gray5}`
           }
         }
       }}

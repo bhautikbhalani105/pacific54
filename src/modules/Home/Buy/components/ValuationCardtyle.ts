@@ -16,11 +16,20 @@ export const Wrapper = styled.div`
       flex: 0 0 25%;
     }
 
+    &.c-3 {
+      flex: 0 0 33.3333%;
+    }
+
+    &.c-2 {
+      flex: 0 0 50%;
+    }
+
     p {
       font-size: 12px;
       line-height: 16px;
       color: ${theming?.color?.gray8};
     }
+
     h4 {
       font-size: 20px;
       line-height: 28px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { theming } from '../../../../style/Theme';
+import { theming } from '../../../../../style/Theme';
 
 export const Wrapper = styled.div`
   border-radius: 6px;
@@ -15,9 +15,6 @@ export const Wrapper = styled.div`
   .slick-slide > div,
   .carousel-slide {
     height: 100%;
-  }
-
-  .ant-carousel {
   }
 
   .carousel-slide {

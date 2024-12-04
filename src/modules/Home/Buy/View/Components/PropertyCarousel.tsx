@@ -1,6 +1,6 @@
 import { Carousel } from 'antd';
 
-import { toAbsoluteUrl } from '../../../../utils/functions';
+import { toAbsoluteUrl } from '../../../../../utils/functions';
 
 import { Wrapper } from './PropertyCarouselStyle';
 

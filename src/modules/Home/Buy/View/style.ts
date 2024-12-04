@@ -22,9 +22,10 @@ export const Wrapper = styled.div`
     margin-top: 16px;
   }
 
-  .detail-card {
-    + .tab-card {
-      margin-top: 48px;
-    }
+  .detail-card + .detail-card,
+  .detail-card + .tab-card,
+  .tab-card + .detail-card,
+  .tab-card + .tab-card {
+    margin-top: 48px;
   }
 `;
