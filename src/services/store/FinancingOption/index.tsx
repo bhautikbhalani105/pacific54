@@ -18,7 +18,7 @@ export const useFinancOpt = create<IFinancOpt & IFinancOptAct>((set) => {
     toggFinancOpt: (key, value) =>
       set((state) => ({
         ...state,
-        [key]: value?.toString()
+        [key]: value
       }))
   };
 });

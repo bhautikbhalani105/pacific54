@@ -16,6 +16,7 @@ import Summary from './Components/Neighborhood/Summary';
 import PropertyCarousel from './Components/PropertyCarousel';
 import Strategy from './Components/Strategy';
 import { Wrapper } from './style';
+import { useNavigate } from 'react-router-dom';
 
 const CompareSales = lazy(() => import('./Components/CompareSales'));
 const CompareRent = lazy(() => import('./Components/CompareRent'));
@@ -25,6 +26,7 @@ const { Meta } = Card;
 
 const BuyDetail: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const [colHeight, setColHeight] = useState<number>(0);
 
@@ -117,7 +119,7 @@ const BuyDetail: React.FC = () => {
           <div className="container">
             <Flex align="center" justify="space-between" gap={12}>
               <Flex align="center" justify="flex-start" gap={12}>
-                <Button icon={<ArrowLeftOutlined />} />
+                <Button icon={<ArrowLeftOutlined />} onClick={() => navigate(-1)} />
                 <Flex align="center" justify="flex-start" gap={24}>
                   <Title level={3} className="heading">
                     1800 Sans Souci Blvd
