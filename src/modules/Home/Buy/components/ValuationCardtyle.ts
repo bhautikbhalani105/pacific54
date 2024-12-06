@@ -7,9 +7,14 @@ export const Wrapper = styled.div`
     padding: 8px 14px;
     flex: 0 0 14.2857%;
     border-left: 1px solid ${theming?.color?.gray5};
-
     &:last-child {
       border-right: 1px solid ${theming?.color?.gray5};
+    }
+    &.border-left-o {
+      border-left: 0;
+    }
+    &.border-right-o {
+      border-right: 0;
     }
 
     &.c-4 {

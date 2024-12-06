@@ -11,7 +11,7 @@ interface IProps {
 const ContentHeader = (props: IProps) => {
   return (
     <div className="shadow-paper pad-md">
-      <Row gutter={[0, 15]} align={'middle'}>
+      <Row gutter={[0, 16]} align={'middle'}>
         <Col xs={props?.button ? 18 : 24}>
           <h2 className="pageTitle">{props?.pageTitle}</h2>
         </Col>

@@ -3,14 +3,14 @@ import { Card, Col, Flex, Row } from 'antd';
 import ValuationCard from '../../../components/ValuationCard';
 
 import HistorySalesChart from './HistorySalesChart';
-import HitoryList from './HitoryList';
+import HistorySalesList from './HistorySalesList';
 
-const HistorySales = () => {
+const HistorySales: React.FC = () => {
   return (
     <Card className="detail-card">
-      <Row>
+      <Row gutter={[16, 16]}>
         <Col xs={10}>
-          <HitoryList />
+          <HistorySalesList />
         </Col>
         <Col xs={14}>
           <Flex justify="space-between" gap={0}>

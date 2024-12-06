@@ -78,7 +78,7 @@ function compareLinkAndReturnKey(items: any, currentPath: any): any {
 const Sidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [collapsed, setCollapsed] = useState(true);
+  const [collapsed, setCollapsed] = useState<boolean>(true);
 
   const activeTab = useMemo(() => {
     const activeLinkKey = compareLinkAndReturnKey(items, location?.pathname);

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { theming } from '../../../../../style/Theme';
+import { theming } from '../../../../../../style/Theme';
 
 export const Wrapper = styled.div`
   border: 1px solid ${theming?.color?.gray5};

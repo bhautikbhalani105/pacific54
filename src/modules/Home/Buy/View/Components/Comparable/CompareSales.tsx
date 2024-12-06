@@ -1,13 +1,16 @@
+import { useState } from 'react';
+
 import { AppstoreOutlined, BarsOutlined, EnvironmentOutlined } from '@ant-design/icons';
 import { Button, Card, Flex, Input, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
-import { compareData, data } from '../../components/DummyData';
-import ValuationCard from '../../components/ValuationCard';
+import { compareData, data } from '../../../components/DummyData';
+import MapBox from '../../../components/MapBox';
+import ValuationCard from '../../../components/ValuationCard';
 import styled from 'styled-components';
 
-import { useViewStore } from '../../../../../services/store/propertyView';
-import { theming } from '../../../../../style/Theme';
+import { useViewStore } from '../../../../../../services/store/propertyView';
+import { theming } from '../../../../../../style/Theme';
 import ComparePropGrid from './ComparePropGrid';
 import ComparePropList from './ComparePropList';
 
@@ -25,6 +28,7 @@ const Label = styled.label`
 
 const CompareSales: React.FC = () => {
   const { propertyView, toggleView } = useViewStore();
+  const [isMapVisible, setIsMapVisible] = useState<boolean>(false);
 
   const view: TabsProps['items'] = [
     {
@@ -41,6 +45,10 @@ const CompareSales: React.FC = () => {
     }
   ];
 
+  const mapVisiblity = () => {
+    setIsMapVisible((prevState: boolean) => !prevState);
+  };
+
   return (
     <>
       <Card className="detail-card">
@@ -52,12 +60,12 @@ const CompareSales: React.FC = () => {
               style={{ width: 'calc(100% - 92px)' }}
               allowClear
             />
-            <Button style={{ width: 84 }} icon={<EnvironmentOutlined />}>
+            <Button style={{ width: 84 }} icon={<EnvironmentOutlined />} onClick={mapVisiblity}>
               Map
             </Button>
           </Flex>
         </>
-        <Flex className="b-t-1-solid-gray5 b-b-1-solid-gray5 mt-16" justify="space-between" gap={0}>
+        <Flex className="mb-16 mt-16" justify="space-between" gap={0}>
           <ValuationCard
             extraClass="c-4"
             valHeading="Selected"
@@ -73,7 +81,7 @@ const CompareSales: React.FC = () => {
           <ValuationCard
             extraClass="c-4"
             valHeading="Average sqft price"
-            mainSignVal={15600}
+            mainVal={15600}
             highLow={['$127/sqft', '$183/sqft']}
           />
           <ValuationCard
@@ -83,6 +91,7 @@ const CompareSales: React.FC = () => {
             highLow={[876, 1523]}
           />
         </Flex>
+        {isMapVisible && <MapBox />}
         <Tabs defaultActiveKey={propertyView} items={view} onChange={toggleView} />
       </Card>
     </>

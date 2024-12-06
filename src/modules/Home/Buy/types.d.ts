@@ -33,3 +33,12 @@ export interface CompareDataType {
   delete?: string;
   thumb: string;
 }
+
+export interface BiddersType {
+  key: string;
+  bidder: string;
+  lastActivity: number;
+  highestBid: number;
+  discountRate: number;
+  estimatedBid: number;
+}

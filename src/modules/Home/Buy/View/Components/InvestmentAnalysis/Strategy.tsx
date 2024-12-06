@@ -1,21 +1,19 @@
-import { useState } from 'react';
-
 import { Card, Collapse, Radio } from 'antd';
-import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
+// import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
 import type { CollapseProps } from 'antd';
 
+import Renovations from '../Renovations';
 import Income from './Income';
 import MonthlyExpenses from './MonthlyExpenses';
-import Renovations from './Renovations';
 
-type SizeType = ConfigProviderProps['componentSize'];
+// type SizeType = ConfigProviderProps['componentSize'];
 
-const Strategy = () => {
-  const [size, setSize] = useState<SizeType>('small');
+const Strategy: React.FC = () => {
+  // const [size, setSize] = useState<SizeType>('small');
 
-  const onChange = (e: RadioChangeEvent) => {
-    setSize(e.target.value);
-  };
+  // const onChange = (e: RadioChangeEvent) => {
+  //   setSize(e.target.value);
+  // };
 
   const items: CollapseProps['items'] = [
     {
@@ -36,9 +34,9 @@ const Strategy = () => {
   ];
 
   const cardTabs = (
-    <Radio.Group buttonStyle="solid" value={size} onChange={onChange}>
-      <Radio.Button value="cash">Rent</Radio.Button>
-      <Radio.Button value="mortgage">Flip</Radio.Button>
+    <Radio.Group buttonStyle="solid" defaultValue="rent">
+      <Radio.Button value="rent">Rent</Radio.Button>
+      <Radio.Button value="flip">Flip</Radio.Button>
     </Radio.Group>
   );
 

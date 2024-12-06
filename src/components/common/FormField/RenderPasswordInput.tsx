@@ -16,7 +16,7 @@ export const RenderPasswordInput = ({
   offSetPull,
   required
 }: IRenderInputProps) => {
-  const [passwordVisible, setPasswordVisible] = React.useState(false);
+  const [passwordVisible, setPasswordVisible] = React.useState<boolean>(false);
   return (
     <Col
       xs={col?.xs}

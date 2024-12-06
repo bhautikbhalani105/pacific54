@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 
 import DiligenceCard from './DiligenceCard';
 
-const DueDiligence = () => {
+const DueDiligence: React.FC = () => {
   const orderDiligence = (e: string) => {
     console.log('Clicked', e);
   };

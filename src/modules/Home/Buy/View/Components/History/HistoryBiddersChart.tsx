@@ -3,14 +3,14 @@ import HighchartsReact from 'highcharts-react-official';
 
 import { ChartTitleStyle } from '../../../../../../components/common/Chart/ChartStyle';
 
-const HistorySalesChart: React.FC = () => {
+const HistoryBiddersChart: React.FC = () => {
   const options = {
     chart: {
       height: 210
     },
 
     title: {
-      text: 'Sales trend',
+      text: 'Bids trend',
       align: 'left',
       style: ChartTitleStyle
     },
@@ -76,4 +76,4 @@ const HistorySalesChart: React.FC = () => {
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 };
 
-export default HistorySalesChart;
+export default HistoryBiddersChart;

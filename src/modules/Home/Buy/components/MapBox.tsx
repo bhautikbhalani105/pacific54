@@ -2,7 +2,7 @@ import { toAbsoluteUrl } from '../../../../utils/functions';
 
 import { MapBoxStyle } from './MapBoxStyle';
 
-const MapBox = () => {
+const MapBox: React.FC = () => {
   return (
     <MapBoxStyle className="map-box">
       <img src={toAbsoluteUrl('/Images/Svg/map.svg')} alt="" />

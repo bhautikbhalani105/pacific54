@@ -1,34 +1,17 @@
-import { useState } from 'react';
+import { Button, Flex, Typography } from 'antd';
 
-import { Button, Card, Flex, Radio, Typography } from 'antd';
-import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
-
-import { useFinancOpt } from '../../../../../services/store/FinancingOption';
-
-type SizeType = ConfigProviderProps['componentSize'];
+import { useFinancOpt } from '../../../../../../services/store/FinancingOption';
 
 const { Paragraph, Text } = Typography;
 
-const FinancingOptions = () => {
-  const [size, setSize] = useState<SizeType>('small');
+const Income: React.FC = () => {
   const purchasePrice = useFinancOpt((state) => state.purchasePrice);
   const closingCosts = useFinancOpt((state) => state.closingCosts);
   const addinlClosingCosts = useFinancOpt((state) => state.addinlClosingCosts);
   const toggFinancOpt = useFinancOpt((state) => state.toggFinancOpt);
 
-  const onChange = (e: RadioChangeEvent) => {
-    setSize(e.target.value);
-  };
-
-  const cardTabs = (
-    <Radio.Group buttonStyle="solid" value={size} onChange={onChange}>
-      <Radio.Button value="cash">Cash</Radio.Button>
-      <Radio.Button value="mortgage">Mortgage</Radio.Button>
-      <Radio.Button value="hardMoney">Hard money</Radio.Button>
-    </Radio.Group>
-  );
   return (
-    <Card className="detail-card" title="Financing Options" extra={cardTabs}>
+    <>
       <Flex align="center" justify="space-between" className="editable-li">
         <Text type="secondary">Purchase price</Text>
         <Paragraph
@@ -64,8 +47,8 @@ const FinancingOptions = () => {
           Total purchase cost: <span>{purchasePrice + closingCosts + addinlClosingCosts}</span>
         </Text>
       </Flex>
-    </Card>
+    </>
   );
 };
 
-export default FinancingOptions;
+export default Income;

@@ -1,7 +1,9 @@
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
-const NeighborhoodChart = () => {
+import { ChartTitleStyle } from '../../../../../../components/common/Chart/ChartStyle';
+
+const NeighborhoodChart: React.FC = () => {
   const options = {
     chart: {
       height: 210
@@ -9,7 +11,8 @@ const NeighborhoodChart = () => {
 
     title: {
       text: 'Neighborhood value trend',
-      align: 'left'
+      align: 'left',
+      style: ChartTitleStyle
     },
 
     subtitle: null,

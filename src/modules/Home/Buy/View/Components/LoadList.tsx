@@ -6,7 +6,7 @@ import { IPropertyDetail, usePropertyDetail } from '../../../../../services/stor
 
 const { Paragraph, Text } = Typography;
 
-const LoadList = () => {
+const LoadList: React.FC = () => {
   const propertyType = usePropertyDetail((state) => state.propertyType);
   const folioNumber = usePropertyDetail((state) => state.folioNumber);
   const mlsNumber = usePropertyDetail((state) => state.mlsNumber);

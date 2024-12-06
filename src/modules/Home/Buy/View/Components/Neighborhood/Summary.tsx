@@ -4,7 +4,7 @@ import ValuationCard from '../../../components/ValuationCard';
 
 import NeighborhoodChart from './NeighborhoodChart';
 
-const Summary = () => {
+const Summary: React.FC = () => {
   return (
     <Card className="detail-card">
       <Row>
@@ -40,7 +40,7 @@ const Summary = () => {
               mainSignVal={86}
             />
             <ValuationCard
-              extraClass="c-2 mt-16"
+              extraClass="c-2 mt-16 border-right-o"
               valHeading="Occupied By Renters"
               mainSignVal={14}
             />

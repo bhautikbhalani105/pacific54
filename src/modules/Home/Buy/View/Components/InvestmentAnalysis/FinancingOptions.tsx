@@ -1,17 +1,39 @@
-import { Button, Flex, Typography } from 'antd';
+import { Button, Card, Flex, Radio, Typography } from 'antd';
 
-import { useFinancOpt } from '../../../../../services/store/FinancingOption';
+// import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
+import { useFinancOpt } from '../../../../../../services/store/FinancingOption';
+
+// type SizeType = ConfigProviderProps['componentSize'];
 
 const { Paragraph, Text } = Typography;
 
-const MonthlyExpenses = () => {
+const FinancingOptions: React.FC = () => {
+  // const [finOptions, setFinOptions] = useState<SizeType>('small');
   const purchasePrice = useFinancOpt((state) => state.purchasePrice);
   const closingCosts = useFinancOpt((state) => state.closingCosts);
   const addinlClosingCosts = useFinancOpt((state) => state.addinlClosingCosts);
   const toggFinancOpt = useFinancOpt((state) => state.toggFinancOpt);
 
+  // const [finOption, setFinOption] = useState([
+  //   { key: 1, text: 'Purchase price', finKey: 'purchasePrice', finValue: 0 },
+  //   { key: 2, text: 'Closing costs (of the purchase)', finKey: 'closingCosts', finValue: 0 },
+  //   { key: 3, text: 'Additional Closing Costs', finKey: 'addinlClosingCosts', finValue: 0 }
+  // ]);
+
+  // const onChange = (e: RadioChangeEvent) => {
+  //   setFinOptions(e.target.value);
+  // };
+
+  const cardTabs = (
+    <Radio.Group buttonStyle="solid" defaultValue="cash">
+      <Radio.Button value="cash">Cash</Radio.Button>
+      <Radio.Button value="mortgage">Mortgage</Radio.Button>
+      <Radio.Button value="hardMoney">Hard money</Radio.Button>
+    </Radio.Group>
+  );
+
   return (
-    <>
+    <Card className="detail-card" title="Financing Options" extra={cardTabs}>
       <Flex align="center" justify="space-between" className="editable-li">
         <Text type="secondary">Purchase price</Text>
         <Paragraph
@@ -39,6 +61,17 @@ const MonthlyExpenses = () => {
           {addinlClosingCosts}
         </Paragraph>
       </Flex>
+      {/* {finOption?.length > 0 && finOption?.map((item) => (
+        <Flex align="center" justify="space-between" className="editable-li" key={item.key}>
+          <Text type="secondary">{item.text}</Text>
+          <Paragraph
+            editable={{ onChange: (value) => toggFinancOpt(item.finKey, Number(value)) }}
+            strong
+          >
+            {item.finValue}
+          </Paragraph>
+        </Flex>
+      ))} */}
       <Button type="link" className="ml-20">
         Add additional value
       </Button>
@@ -47,8 +80,8 @@ const MonthlyExpenses = () => {
           Total purchase cost: <span>{purchasePrice + closingCosts + addinlClosingCosts}</span>
         </Text>
       </Flex>
-    </>
+    </Card>
   );
 };
 
-export default MonthlyExpenses;
+export default FinancingOptions;

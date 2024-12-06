@@ -1,10 +1,10 @@
 import { Button, Flex, Typography } from 'antd';
 
-import { useFinancOpt } from '../../../../../services/store/FinancingOption';
+import { useFinancOpt } from '../../../../../../services/store/FinancingOption';
 
 const { Paragraph, Text } = Typography;
 
-const Income = () => {
+const MonthlyExpenses: React.FC = () => {
   const purchasePrice = useFinancOpt((state) => state.purchasePrice);
   const closingCosts = useFinancOpt((state) => state.closingCosts);
   const addinlClosingCosts = useFinancOpt((state) => state.addinlClosingCosts);
@@ -51,4 +51,4 @@ const Income = () => {
   );
 };
 
-export default Income;
+export default MonthlyExpenses;

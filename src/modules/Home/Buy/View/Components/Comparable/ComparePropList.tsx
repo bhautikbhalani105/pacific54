@@ -5,11 +5,11 @@ import { Button, Table } from 'antd';
 import type { TableColumnsType, TableProps } from 'antd';
 import dayjs from 'dayjs';
 
-import { defaultPagination } from '../../../../../utils/constants/utils';
+import { defaultPagination } from '../../../../../../utils/constants/utils';
 
-import TableAddress from '../../../../../components/common/Table/TableAddress';
+import TableAddress from '../../../../../../components/common/Table/TableAddress';
 
-import { CompareDataType } from '../../types';
+import { CompareDataType } from '../../../types';
 
 interface IProps {
   data: CompareDataType[];

@@ -4,7 +4,7 @@ import { useFinancOpt } from '../../../../../services/store/FinancingOption';
 
 const { Paragraph, Text } = Typography;
 
-const Renovations = () => {
+const Renovations: React.FC = () => {
   const purchasePrice = useFinancOpt((state) => state.purchasePrice);
   const closingCosts = useFinancOpt((state) => state.closingCosts);
   const addinlClosingCosts = useFinancOpt((state) => state.addinlClosingCosts);

@@ -34,7 +34,7 @@ const { useToken } = theme;
 const { Text } = Typography;
 const { Search } = Input;
 
-const HomeBuy = () => {
+const HomeBuy: React.FC = () => {
   const { token } = useToken();
   const { propertyView, toggleView } = useViewStore();
 

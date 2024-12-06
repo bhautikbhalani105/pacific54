@@ -1,6 +1,7 @@
 import { AntButton } from './AntButton';
 import { AntCard } from './AntCard';
 import { AntCollapse } from './AntCollapse';
+import { AntDescription } from './AntDescription';
 import { AntDropdown } from './AntDropdown';
 import { AntImage } from './AntImage';
 import { AntTable } from './AntTable';
@@ -14,6 +15,7 @@ const AntdStyle = () => {
       <AntButton />
       <AntCard />
       <AntCollapse />
+      <AntDescription />
     </>
   );
 };

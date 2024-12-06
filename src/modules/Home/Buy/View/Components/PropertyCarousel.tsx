@@ -4,7 +4,7 @@ import { toAbsoluteUrl } from '../../../../../utils/functions';
 
 import { Wrapper } from './PropertyCarouselStyle';
 
-const PropertyCarousel = () => {
+const PropertyCarousel: React.FC = () => {
   return (
     <Wrapper>
       <div className="carousel-wrapper">

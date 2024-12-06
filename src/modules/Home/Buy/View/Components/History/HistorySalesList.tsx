@@ -11,7 +11,7 @@ interface DataType {
   source: string;
 }
 
-const HitoryList: React.FC = () => {
+const HistorySalesList: React.FC = () => {
   const [data, setData] = useState<DataType[]>([]); // Table data
   const [loading, setLoading] = useState<boolean>(false); // Loading state
   const [hasMore, setHasMore] = useState<boolean>(true); // Whether more data can be loaded
@@ -99,4 +99,4 @@ const HitoryList: React.FC = () => {
   );
 };
 
-export default HitoryList;
+export default HistorySalesList;

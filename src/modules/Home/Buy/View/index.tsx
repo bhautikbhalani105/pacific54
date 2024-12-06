@@ -1,25 +1,21 @@
-import React, { lazy, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { ArrowLeftOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Divider, Dropdown, Flex, Row, Tabs, Typography } from 'antd';
-import type { TabsProps } from 'antd';
+import { Button, Card, Col, Divider, Dropdown, Flex, Row, Typography } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import Amenities from '../components/Amenities';
 import MapBox from '../components/MapBox';
 import ValuationCard from '../components/ValuationCard';
 
-import DueDiligence from './Components/DueDiligence';
-import FinancingOptions from './Components/FinancingOptions';
-import HistorySales from './Components/History/HistorySales';
+import Comparable from './Components/Comparable';
+import Diligence from './Components/Diligence';
+import HistorySec from './Components/History';
+import InvestmentAnalysis from './Components/InvestmentAnalysis';
 import LoadList from './Components/LoadList';
-import Summary from './Components/Neighborhood/Summary';
+import Neighborhood from './Components/Neighborhood';
 import PropertyCarousel from './Components/PropertyCarousel';
-import Strategy from './Components/Strategy';
 import { Wrapper } from './style';
-import { useNavigate } from 'react-router-dom';
-
-const CompareSales = lazy(() => import('./Components/CompareSales'));
-const CompareRent = lazy(() => import('./Components/CompareRent'));
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -42,65 +38,6 @@ const BuyDetail: React.FC = () => {
     {
       key: '3',
       label: '3rd item'
-    }
-  ];
-
-  const comparableItems: TabsProps['items'] = [
-    {
-      key: 'sales',
-      label: 'Sales',
-      children: <CompareSales />
-    },
-    {
-      key: 'rent',
-      label: 'Rent',
-      children: <CompareRent />
-    }
-  ];
-
-  const historyItems: TabsProps['items'] = [
-    {
-      key: 'sales',
-      label: 'Sales',
-      children: <HistorySales />
-    },
-    {
-      key: 'mortgages',
-      label: 'Mortgages',
-      children: <HistorySales />
-    },
-    {
-      key: 'taxes',
-      label: 'Taxes',
-      children: <HistorySales />
-    },
-    {
-      key: 'plantif',
-      label: 'Plantif',
-      children: <HistorySales />
-    },
-    {
-      key: 'bidders',
-      label: 'Bidders',
-      children: <HistorySales />
-    }
-  ];
-
-  const neighborhoodItems: TabsProps['items'] = [
-    {
-      key: 'summary',
-      label: 'Summary',
-      children: <Summary />
-    },
-    {
-      key: 'schools',
-      label: 'Schools',
-      children: <Summary />
-    },
-    {
-      key: 'crime',
-      label: 'Crime',
-      children: <Summary />
     }
   ];
 
@@ -180,42 +117,11 @@ const BuyDetail: React.FC = () => {
           }
         />
       </Card>
-      <Tabs
-        tabBarExtraContent={
-          <Title level={3} className="card-heading">
-            Comparable
-          </Title>
-        }
-        items={comparableItems}
-        className="tab-card"
-      />
-      <Tabs
-        tabBarExtraContent={
-          <Title level={3} className="card-heading">
-            History
-          </Title>
-        }
-        items={historyItems}
-        className="tab-card"
-      />
-      <Tabs
-        tabBarExtraContent={
-          <Title level={3} className="card-heading">
-            Neighborhood
-          </Title>
-        }
-        items={neighborhoodItems}
-        className="tab-card"
-      />
-      <Title level={3} className="card-heading">
-        Investment Analysis
-      </Title>
-      <FinancingOptions />
-      <Strategy />
-      <Title level={3} className="card-heading">
-        Due Diligence
-      </Title>
-      <DueDiligence />
+      <Comparable />
+      <HistorySec />
+      <Neighborhood />
+      <InvestmentAnalysis />
+      <Diligence />
       <Title level={3} className="card-heading">
         Prepare for Auction
       </Title>

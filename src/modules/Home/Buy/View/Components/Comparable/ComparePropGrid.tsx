@@ -3,9 +3,9 @@ import React from 'react';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import PropertyCard from '../../components/PropertyCard';
+import PropertyCard from '../../../components/PropertyCard';
 
-import { DataType } from '../../types';
+import { DataType } from '../../../types';
 
 interface IProps {
   data: DataType[]; // Todo: Change comparable data types as per grid view
