@@ -281,6 +281,10 @@ export const Spacing = createGlobalStyle`
     margin-left: 48px;
 }
 
+.ml-50 {
+    margin-left: 50px;
+}
+
 /* Padding */
 .p-0 {
     padding: 0;

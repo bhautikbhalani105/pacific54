@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { lazy, useEffect, useRef, useState } from 'react';
 
 import { ArrowLeftOutlined, EllipsisOutlined } from '@ant-design/icons';
-import { Button, Card, Col, Divider, Dropdown, Flex, Row, Typography } from 'antd';
+import { Button, Col, Dropdown, Flex, Row, Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 import Amenities from '../components/Amenities';
@@ -11,14 +11,16 @@ import ValuationCard from '../components/ValuationCard';
 import Comparable from './Components/Comparable';
 import Diligence from './Components/Diligence';
 import HistorySec from './Components/History';
-import InvestmentAnalysis from './Components/InvestmentAnalysis';
-import LoadList from './Components/LoadList';
 import Neighborhood from './Components/Neighborhood';
 import PropertyCarousel from './Components/PropertyCarousel';
+import PropertyDetails from './Components/PropertyDetails';
 import { Wrapper } from './style';
 
-const { Title, Text } = Typography;
-const { Meta } = Card;
+const InvestmentAnalysis = lazy(() => import('./Components/InvestmentAnalysis'));
+const PrepareAuction = lazy(() => import('./Components/PrepareAuction'));
+const Notes = lazy(() => import('../../../../components/common/Notes'));
+
+const { Title } = Typography;
 
 const BuyDetail: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -76,17 +78,45 @@ const BuyDetail: React.FC = () => {
         <div className="valuations">
           <div className="container">
             <Flex justify="space-between" gap={0}>
-              <ValuationCard valHeading="Listing Value" mainVal={275000} />
-              <ValuationCard valHeading="Estimated Value" mainVal={264000} />
-              <ValuationCard valHeading="Estimated Equity" mainVal={64800} />
               <ValuationCard
+                tooltipinfo="Price listed for the property based on market trends"
+                valHeading="Listing Value"
+                mainVal={275000}
+              />
+              <ValuationCard
+                tooltipinfo="The approximate market value of the property based on comparable sales and current trends."
+                valHeading="Estimated Value"
+                mainVal={264000}
+              />
+              <ValuationCard
+                tooltipinfo="The difference between the property's estimated value and any outstanding mortgage or debt."
+                valHeading="Estimated Equity"
+                mainVal={64800}
+              />
+              <ValuationCard
+                tooltipinfo="The expected monthly rental income the property could generate."
                 valHeading="Estimated Rental"
                 mainVal={1111}
                 highLow={['$1000', '$1200']}
               />
-              <ValuationCard valHeading="30 Days change" mainVal={15450} incRate={7} />
-              <ValuationCard valHeading="Cap Rate" mainSignVal={-9} rateVal={39870} />
-              <ValuationCard valHeading="ROI" mainSignVal={11} rateVal={45230} />
+              <ValuationCard
+                tooltipinfo="The percentage increase or decrease in the property value over the past 30 days."
+                valHeading="30 Days change"
+                mainVal={15450}
+                incRate={7}
+              />
+              <ValuationCard
+                tooltipinfo="The annual return on investment (ROI) expressed as a percentage of the property's current value."
+                valHeading="Cap Rate"
+                mainSignVal={-9}
+                rateVal={39870}
+              />
+              <ValuationCard
+                tooltipinfo="The profit generated from the property as a percentage of the total investment cost."
+                valHeading="ROI"
+                mainSignVal={11}
+                rateVal={45230}
+              />
             </Flex>
           </div>
         </div>
@@ -99,32 +129,14 @@ const BuyDetail: React.FC = () => {
           <PropertyCarousel />
         </Col>
       </Row>
-      <Title level={3} className="card-heading">
-        Property details
-      </Title>
-      <Card className="detail-card">
-        <LoadList />
-        <Divider style={{ margin: '24px -24px', width: 'calc(100% + 48px)' }} />
-        <Meta
-          title={<Text type="secondary">Remarks</Text>}
-          description={
-            <p>
-              Amazing opportunity to own this charming old Spanish style home. As you walk in, it
-              invites you to the spacious living/dining room area. Great for family fun & more!
-              Expand your celebrations to the HUGE backyard for BBq's and outdoor activities. This
-              home comes with 3 bedrooms and 2 full baths. Some TLC required.
-            </p>
-          }
-        />
-      </Card>
+      <PropertyDetails />
       <Comparable />
       <HistorySec />
       <Neighborhood />
       <InvestmentAnalysis />
       <Diligence />
-      <Title level={3} className="card-heading">
-        Prepare for Auction
-      </Title>
+      <PrepareAuction />
+      <Notes />
     </Wrapper>
   );
 };

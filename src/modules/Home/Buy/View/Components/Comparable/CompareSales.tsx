@@ -71,24 +71,35 @@ const CompareSales: React.FC = () => {
             valHeading="Selected"
             mainVal="4 properties"
             rateVal="from 8"
+            tooltipinfo={
+              <ul>
+                <li>6391 Elgin St. Celina</li>
+                <li>2118 Thornridge Cir.</li>
+                <li>2464 Royal Ln. Mesa</li>
+                <li>6391 Elgin St. Celina</li>
+              </ul>
+            }
           />
           <ValuationCard
             extraClass="c-4"
             valHeading="Average sale price"
-            mainVal={196580}
+            mainVal={1364}
             highLow={[165000, 223500]}
+            tooltipinfo="Represents the average price of properties sold in a specific area or time period, providing insights into market trends."
           />
           <ValuationCard
             extraClass="c-4"
             valHeading="Average sqft price"
-            mainVal={15600}
+            mainVal={1.6}
             highLow={['$127/sqft', '$183/sqft']}
+            tooltipinfo="The average price per square foot of properties sold, reflecting property value relative to size."
           />
           <ValuationCard
             extraClass="c-4"
             valHeading="Average SqFt."
             mainVal={1211}
             highLow={[876, 1523]}
+            tooltipinfo="The average size of properties sold, measured in square feet, indicating typical property dimensions."
           />
         </Flex>
         {isMapVisible && <MapBox />}

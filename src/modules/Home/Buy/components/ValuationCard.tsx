@@ -1,5 +1,6 @@
 import { InfoCircleFilled } from '@ant-design/icons';
-import { Typography } from 'antd';
+import { Tooltip, Typography } from 'antd';
+import { RenderFunction } from 'antd/es/_util/getRenderPropValue';
 
 import { nunSign } from '../../../../utils/constants/utils';
 
@@ -10,6 +11,7 @@ const { Text } = Typography;
 interface IProps {
   extraClass?: string;
   valHeading: string;
+  tooltipinfo: React.ReactNode | RenderFunction;
   mainVal?: number | string;
   highLow?: number[] | string[];
   incRate?: number;
@@ -24,12 +26,16 @@ const ValuationCard: React.FC<IProps> = ({
   incRate,
   rateVal,
   mainSignVal,
+  tooltipinfo,
   extraClass
 }) => {
   return (
     <Wrapper className={`card ${extraClass}`}>
       <p>
-        {valHeading} <InfoCircleFilled />
+        {valHeading}&nbsp;
+        <Tooltip title={tooltipinfo}>
+          <InfoCircleFilled />
+        </Tooltip>
       </p>
       {mainVal && (
         <h4>

@@ -208,4 +208,10 @@ export const Common = createGlobalStyle`
 		}
   }
 	/*  */
+
+	/* Tooltip css start */
+	.ant-tooltip {
+		line-height: 22px;
+	}
+	/* Tooltip css over */
 `;

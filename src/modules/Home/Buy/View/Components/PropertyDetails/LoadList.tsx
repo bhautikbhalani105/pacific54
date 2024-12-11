@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 
 import { Col, Flex, Row, Typography } from 'antd';
 
-import { IPropertyDetail, usePropertyDetail } from '../../../../../services/store/PropertyDetail';
+import {
+  IPropertyDetail,
+  usePropertyDetail
+} from '../../../../../../services/store/PropertyDetail';
 
 const { Paragraph, Text } = Typography;
 
