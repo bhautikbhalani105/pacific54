@@ -1,4 +1,4 @@
-const EditUser = () => {
+const EditUser: React.FC = () => {
   return <div>EditUser</div>;
 };
 

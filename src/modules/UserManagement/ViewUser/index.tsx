@@ -14,7 +14,7 @@ const BreadcrumbsPath = [
   }
 ];
 
-const ViewUser = () => {
+const ViewUser: React.FC = () => {
   return (
     <Wrapper>
       <StyledBreadcrumb items={BreadcrumbsPath}></StyledBreadcrumb>

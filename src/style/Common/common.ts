@@ -214,4 +214,18 @@ export const Common = createGlobalStyle`
 		line-height: 22px;
 	}
 	/* Tooltip css over */
+	.ant-dropdown-btn {
+		.ant-btn {
+			line-height: 1;
+			height: unset;
+			padding: 0;
+			background: transparent !important;
+		}
+	}
+	.ctsm-scroll-height {
+    /* height: 300px; */
+    overflow: hidden;
+    overflow-y: auto;
+		/* margin-right: -16px; */
+  }
 `;

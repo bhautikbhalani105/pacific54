@@ -5,7 +5,7 @@ import ContentHeader from '../../components/layout/contentHeader';
 
 import { Wrapper } from './style';
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   return (
     <>
       <Meta title="Demo App - Home" />

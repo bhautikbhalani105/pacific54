@@ -9,7 +9,7 @@ const BreadcrumbsPath = [
   }
 ];
 
-const UserManagement = () => {
+const UserManagement: React.FC = () => {
   return (
     <Wrapper>
       <StyledBreadcrumb items={BreadcrumbsPath}></StyledBreadcrumb>

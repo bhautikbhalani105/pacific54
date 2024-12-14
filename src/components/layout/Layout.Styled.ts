@@ -14,15 +14,26 @@ export const StyledLayout = styled(Layout)`
     /* Sidebar */
     .ant-layout-sider {
       min-height: 100vh;
+      .ant-layout-sider-children {
+        padding: 0 16px;
+      }
+      .ant-collapse-ghost {
+        margin: 0 -16px;
+      }
       .logoWrapper {
         height: var(--headerHeight);
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
+        /* align-items: center; */
+        /* justify-content: center; */ // Comment till actual logo was not coming
+        padding: 10px 0;
+        font-size: 21px;
+        color: #074992;
+        font-weight: 700;
+
         img {
           width: 100%;
           height: 100%;
+          max-width: 106px;
           object-fit: contain;
           &.logoSm {
             max-width: 30px;
@@ -30,19 +41,19 @@ export const StyledLayout = styled(Layout)`
           }
         }
       }
-      .ant-menu {
+      /* .ant-menu {
         &.sidebarMenu {
           height: var(--bodyHeight);
           overflow: auto;
         }
-      }
+      } */
       .ant-layout-sider-trigger {
         height: var(--footerHeight);
         line-height: var(--footerHeight);
       }
     }
     /* Header */
-    .ant-layout-header {
+    /* .ant-layout-header {
       height: var(--headerHeight);
 
       .header-title {
@@ -57,7 +68,7 @@ export const StyledLayout = styled(Layout)`
         border: 1px solid ${theming?.color?.black};
         background-color: ${theming?.color?.white};
       }
-    }
+    } */
 
     /* Content */
     .ant-layout-content {

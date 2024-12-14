@@ -3,7 +3,7 @@ import UserList from './components/UserList';
 
 import { Wrapper } from './style';
 
-const ReactQueryDemo = () => {
+const ReactQueryDemo: React.FC = () => {
   return (
     <Wrapper>
       <Meta title="Demo App - Users" />

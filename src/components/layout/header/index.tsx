@@ -8,7 +8,7 @@ import { toAbsoluteUrl } from '../../../utils/functions';
 import { authStore } from '../../../services/store/auth';
 import { StyledLayout } from '../Layout.Styled';
 
-const Header = () => {
+const Header: React.FC = () => {
   const navigate = useNavigate();
   const {
     actions: { authFail }
@@ -25,7 +25,8 @@ const Header = () => {
           My Account
         </Button>
       ),
-      icon: <UserOutlined />
+      icon: <UserOutlined />,
+      className: 'ant-dropdown-btn'
     },
     {
       key: '2',
@@ -34,7 +35,8 @@ const Header = () => {
           Change password
         </Button>
       ),
-      icon: <UserOutlined />
+      icon: <UserOutlined />,
+      className: 'ant-dropdown-btn'
     },
     {
       key: '3',
@@ -43,7 +45,8 @@ const Header = () => {
           Logout
         </Button>
       ),
-      icon: <LogoutOutlined />
+      icon: <LogoutOutlined />,
+      className: 'ant-dropdown-btn'
     }
   ];
 

@@ -1,4 +1,4 @@
-const MyAccount = () => {
+const MyAccount: React.FC = () => {
   return <div>MyAccount</div>;
 };
 

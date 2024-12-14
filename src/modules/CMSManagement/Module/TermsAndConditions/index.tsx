@@ -2,7 +2,7 @@ import { Col, Row } from 'antd';
 
 import { Wrapper } from '../../cms.style';
 
-const TermsAndCondition = () => {
+const TermsAndCondition: React.FC = () => {
   return (
     <Wrapper>
       <div className="shadow-paper">

@@ -1,6 +1,6 @@
 import { Col, Row } from 'antd';
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy: React.FC = () => {
   return (
     <div className="shadow-paper">
       <Row>

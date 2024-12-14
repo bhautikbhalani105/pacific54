@@ -23,7 +23,7 @@ const UserEdit = lazy(() => import('../modules/UserManagement/EditUser'));
 const TermsAndCondition = lazy(() => import('../modules/CMSManagement/Module/TermsAndConditions'));
 const PrivacyPolicy = lazy(() => import('../modules/CMSManagement/Module/PrivacyPolicy'));
 
-const Routing = () => {
+const Routing: React.FC = () => {
   return (
     <Routes>
       <Route path={ROUTES.signIn} element={<SignIn />} />

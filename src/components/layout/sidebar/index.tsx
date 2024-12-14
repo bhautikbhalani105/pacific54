@@ -1,124 +1,202 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import {
-  DashboardOutlined,
-  FileOutlined,
-  FolderOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  MoneyCollectOutlined,
-  UserOutlined
-} from '@ant-design/icons';
-import { Menu } from 'antd';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { Divider, Input, Space } from 'antd';
+import type { CollapseProps } from 'antd';
+import { Collapse } from 'antd';
 
-import { ROUTES } from '../../../utils/constants/routes';
-import { toAbsoluteUrl } from '../../../utils/functions';
+import AssessedValue from './components/AssessedValue';
+import AuctionDate from './components/AuctionDate';
+import BathsInput from './components/BathsInput';
+import BedsInput from './components/BedsInput';
+import EstimatedValue from './components/EstimatedValue';
+import Extras from './components/Extras';
+import ListingType from './components/ListingType';
+import PropertyType from './components/PropertyType';
+import PurchasingFees from './components/PurchasingFees';
+import Rent from './components/Rent';
+import RentingFees from './components/RentingFees';
+import Status from './components/Status';
 
 import { StyledLayout } from '../Layout.Styled';
 
-function createMenuItem(
-  link?: string,
-  label?: string,
-  key?: any,
-  icon?: any,
-  children?: any,
-  type?: any
-) {
-  return {
-    link,
-    key,
-    icon,
-    children,
-    label,
-    type
-  };
-}
+const { Search } = Input;
 
-const items = [
-  createMenuItem(ROUTES.buy, 'Dashboard', '1', <DashboardOutlined />),
-  createMenuItem(ROUTES.userManagement, 'User Management', '2', <UserOutlined />),
-  createMenuItem(ROUTES.reactQueryDemo, 'React query Demo', '3', <UserOutlined />),
-  createMenuItem(
-    '/subscription-management',
-    'Subscription Management',
-    '4',
-    <MoneyCollectOutlined />
-  ),
-  createMenuItem(
-    ROUTES.termsAndConditions,
-    'CMS Management',
-    'sub2',
-    <FolderOutlined />,
-    [
-      createMenuItem(ROUTES.termsAndConditions, 'Terms And Conditions', '5', <FileOutlined />),
-      createMenuItem(ROUTES.privacyPolicy, 'Privacy Policy', '6', <FileOutlined />)
-    ],
-    'CMS Management'
-  )
-];
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
 
-function compareLinkAndReturnKey(items: any, currentPath: any): any {
-  let activeLinkKey;
-  for (const item of items) {
-    if (item?.children && Array.isArray(item?.children) && item.children.length > 0) {
-      activeLinkKey = compareLinkAndReturnKey(item.children, currentPath);
-    } else if (
-      item.link === currentPath ||
-      item.link === currentPath.split('/').splice(0, 3).join('/')
-    ) {
-      activeLinkKey = item.key;
-      break;
-    } else {
-      continue;
-    }
-  }
-  return activeLinkKey;
-}
-const Sidebar = () => {
-  const navigate = useNavigate();
-  const location = useLocation();
+const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState<boolean>(true);
+  const [pageHeight, setPageHeight] = useState<number>(0);
+  console.log('collapsed', collapsed);
 
-  const activeTab = useMemo(() => {
-    const activeLinkKey = compareLinkAndReturnKey(items, location?.pathname);
-    if (activeLinkKey) {
-      return [activeLinkKey];
-    } else {
-      return [
-        items?.find((item) => item?.link?.split('/')[1] === location?.pathname?.split('/')[1])
-          ?.key ?? '1'
-      ];
+  useEffect(() => {
+    setPageHeight(window.innerHeight - 260); // 36 + 36 + 48 + 22 + 49 + 60
+  }, []);
+
+  const items: CollapseProps['items'] = [
+    {
+      key: '1',
+      label: `Status (5)`,
+      children: <Status />
+    },
+    {
+      key: '2',
+      label: `Saved searches (11)`,
+      children: <p>{text}</p>
+    },
+    {
+      key: '3',
+      label: 'Property type',
+      children: <PropertyType />
+    },
+    {
+      key: '4',
+      label: `Listing type`,
+      children: <ListingType />
+    },
+    {
+      key: '5',
+      label: 'Auction date',
+      children: <AuctionDate />
+    },
+    {
+      key: '6',
+      label: 'Address',
+      children: <p>{text}</p>
+    },
+    {
+      key: '7',
+      label: 'Lot & property size',
+      children: <p>{text}</p>
+    },
+    {
+      key: '8',
+      label: 'Estimated value',
+      children: <EstimatedValue />
+    },
+    {
+      key: '9',
+      label: 'Assessed value',
+      children: <AssessedValue />
+    },
+    {
+      key: '10',
+      label: 'Rent',
+      children: <Rent />
+    },
+    {
+      key: '11',
+      label: 'P%',
+      children: <PurchasingFees />
+    },
+    {
+      key: '12',
+      label: 'R%',
+      children: <RentingFees />
+    },
+    {
+      key: '13',
+      label: 'Color',
+      children: <p>{text}</p>
+    },
+    {
+      key: '14',
+      label: 'Folio #',
+      children: <p>{text}</p>
+    },
+    {
+      key: '15',
+      label: 'Beds',
+      children: <BedsInput />
+    },
+    {
+      key: '16',
+      label: 'Baths',
+      children: <BedsInput />
+    },
+    {
+      key: '17',
+      label: 'Owner',
+      children: <BathsInput />
+    },
+    {
+      key: '18',
+      label: 'Maximum bid',
+      children: <p>{text}</p>
+    },
+    {
+      key: '19',
+      label: 'Final judgement',
+      children: <p>{text}</p>
+    },
+    {
+      key: '20',
+      label: 'Primary plaintiff',
+      children: <p>{text}</p>
+    },
+    {
+      key: '21',
+      label: 'Year built',
+      children: <p>{text}</p>
+    },
+    {
+      key: '22',
+      label: 'Case number',
+      children: <p>{text}</p>
+    },
+    {
+      key: '23',
+      label: 'SP% / Sq.Feet',
+      children: <p>{text}</p>
+    },
+    {
+      key: '24',
+      label: 'Homestead',
+      children: <p>{text}</p>
+    },
+    {
+      key: '25',
+      label: 'Extras',
+      children: <Extras />
+    },
+    {
+      key: '26',
+      label: 'Parking spots',
+      children: <p>{text}</p>
     }
-  }, [location.pathname]);
+  ];
+
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
 
   return (
     <StyledLayout.Sider
       collapsible
-      breakpoint="lg"
-      collapsed={collapsed}
-      width={'260px'}
-      collapsedWidth={60}
+      collapsedWidth="1px"
       onCollapse={(collapsed) => {
         setCollapsed(collapsed);
       }}
       trigger={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
     >
-      <div className="logoWrapper">
-        {collapsed ? (
-          <img className="logoSm" alt="Logo" src={toAbsoluteUrl('/icons/Logo_Small.svg')} />
-        ) : (
-          <img className="logoLg" alt="Logo" src={toAbsoluteUrl('/icons/Logo.svg')} />
-        )}
+      <div className="sider-content" style={{ display: collapsed ? 'none' : 'block' }}>
+        <div className="pl-16 pr-16">
+          <h4 className="sidebar-heading">Filters</h4>
+          <Space>
+            <Search placeholder="Search filters..." allowClear />
+          </Space>
+          <h5 className="filter-heading">All (1,356)</h5>
+          <p className="filter-info">Followed (123)</p>
+        </div>
+        <Divider style={{ margin: '16px 0' }} />
+        <div className="ctsm-scroll-height" style={{ height: pageHeight }}>
+          <Collapse items={items} ghost onChange={onChange} />
+        </div>
       </div>
-      <Menu
-        theme="light"
-        className="sidebarMenu"
-        defaultSelectedKeys={activeTab}
-        mode="inline"
-        onClick={({ item }: any) => navigate(item.props.link)}
-        items={items}
-      />
     </StyledLayout.Sider>
   );
 };

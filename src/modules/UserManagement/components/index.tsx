@@ -11,7 +11,7 @@ import DeleteModal from '../../../components/common/Modal/DeleteModal';
 import { CommonTable } from '../../../components/common/Table';
 import { usersManagementData } from '../../../components/common/Table/dummyData';
 
-const UserManagementTable = () => {
+const UserManagementTable: React.FC = () => {
   const navigate = useNavigate();
 
   const handleDeleteModal = React.useCallback(async (id: number) => {

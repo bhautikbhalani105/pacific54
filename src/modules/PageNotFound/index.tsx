@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ErrorContent from './Components/ErrorContent';
 
-const PageNotFound = () => {
+const PageNotFound: React.FC = () => {
   const navigate = useNavigate();
 
   return (

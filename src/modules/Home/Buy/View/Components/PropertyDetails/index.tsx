@@ -5,7 +5,7 @@ import LoadList from './LoadList';
 const { Title, Text } = Typography;
 const { Meta } = Card;
 
-const PropertyDetails = () => {
+const PropertyDetails: React.FC = () => {
   return (
     <>
       <Title level={3} className="card-heading">

@@ -114,6 +114,11 @@ const ThemeConfig = ({ children }: any) => {
           },
           Collapse: {
             colorBorder: `${theming?.color?.gray5}`
+          },
+          Switch: {
+            handleSize: 20,
+            trackHeight: 24,
+            trackMinWidth: 44
           }
         }
       }}

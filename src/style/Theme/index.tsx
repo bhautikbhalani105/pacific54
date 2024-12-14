@@ -1,7 +1,7 @@
 export const theming = {
   color: {
     primary: '#074992',
-    // primary: '#42526E',
+    primaryDark: '#42526E',
     primaryLight: '#EB6D004c',
     secondary: '#96c11e',
     secondaryLight: '#96c11e4c',

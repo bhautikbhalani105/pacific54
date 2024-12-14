@@ -1,6 +1,6 @@
 import ContentHeader from '../../../../components/layout/contentHeader';
 
-const ChangePassword = () => {
+const ChangePassword: React.FC = () => {
   return (
     <>
       <ContentHeader pageTitle="Change Password" />
