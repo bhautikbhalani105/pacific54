@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { Avatar, Button, Card, Divider, Flex, Input, List, Typography, message } from 'antd';
+import { Avatar, Button, Card, Divider, Flex, Input, List, Typography } from 'antd';
 import VirtualList from 'rc-virtual-list';
 
 import { toAbsoluteUrl } from '../../../utils/functions';
@@ -43,7 +43,7 @@ const Notes: React.FC = () => {
       .then((body) => {
         setData(data.concat(body.results));
         if (showMessage) {
-          message.success(`${body.results.length} more items loaded!`);
+          // message.success(`${body.results.length} more items loaded!`);
         }
       });
   };

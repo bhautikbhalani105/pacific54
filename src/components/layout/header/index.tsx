@@ -1,14 +1,19 @@
+import { useState } from 'react';
+
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
-import { Avatar, Button, Col, Dropdown, MenuProps, Row } from 'antd';
+import { Avatar, Button, Col, Dropdown, Layout, Menu, MenuProps, Row } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ROUTES } from '../../../utils/constants/routes';
 import { toAbsoluteUrl } from '../../../utils/functions';
 
 import { authStore } from '../../../services/store/auth';
-import { StyledLayout } from '../Layout.Styled';
 
-const Header: React.FC = () => {
+const { Header } = Layout;
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+const LayoutHeader: React.FC = () => {
   const navigate = useNavigate();
   const {
     actions: { authFail }
@@ -50,13 +55,37 @@ const Header: React.FC = () => {
     }
   ];
 
+  const menu: MenuItem[] = [
+    {
+      label: 'BUY',
+      key: 'buy'
+    },
+    {
+      label: 'MARKETING',
+      key: 'marketing'
+    },
+    {
+      label: 'CONTACT',
+      key: 'contact'
+    }
+  ];
+
+  const [current, setCurrent] = useState('mail');
+
+  const onClick: MenuProps['onClick'] = (e) => {
+    setCurrent(e.key);
+  };
+
   return (
-    <StyledLayout.Header style={{ textAlign: 'center' }}>
+    <Header style={{ textAlign: 'center' }}>
       <Row gutter={16} align={'middle'} justify={'space-between'}>
-        {/* <Col sm={24} md={8} className="d-flex align-items-center justify-content-start">
-          <h2 className="header-title">Dashboard</h2>
-        </Col> */}
-        <Col xs={24} className="d-flex align-items-center justify-content-end">
+        <Col sm={16} md={8} className="d-flex align-items-center justify-content-start">
+          <div className="logoWrapper">
+            <img src={toAbsoluteUrl('/Images/logo.svg')} />
+          </div>
+          <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={menu} />
+        </Col>
+        <Col xs={8} className="d-flex align-items-center justify-content-end">
           <Dropdown
             menu={{ items }}
             trigger={['click']}
@@ -65,7 +94,7 @@ const Header: React.FC = () => {
           >
             <Link to="" onClick={(e) => e.preventDefault()}>
               <Avatar
-                size="large"
+                // size="large"
                 src={toAbsoluteUrl('/icons/user_thumbnail.svg')}
                 className="profile-avatar"
               />
@@ -73,8 +102,8 @@ const Header: React.FC = () => {
           </Dropdown>
         </Col>
       </Row>
-    </StyledLayout.Header>
+    </Header>
   );
 };
 
-export default Header;
+export default LayoutHeader;

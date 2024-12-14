@@ -44,11 +44,11 @@ const BuyDetail: React.FC = () => {
   ];
 
   useEffect(() => {
-    setTimeout(() => {
-      if (carouselRef.current) {
-        setColHeight(carouselRef.current.offsetWidth - 16);
-      }
-    }, 500);
+    // setTimeout(() => {
+    if (carouselRef.current) {
+      setColHeight(carouselRef.current.offsetWidth - 16);
+    }
+    // }, 500);
   }, []);
 
   return (

@@ -2,19 +2,35 @@ import { styled } from 'styled-components';
 
 import { theming } from '../../style/Theme';
 
-// import { theming } from '../../style/Theme';
-
 export const Wrapper = styled.div`
   --headerHeight: 48px;
-  --footerHeight: 60px;
+  --footerHeight: 48px;
   --bodyHeight: calc(100vh - var(--headerHeight) - var(--footerHeight));
 
   .main-layout {
     height: 100vh;
   }
+
   .content-layout {
     height: var(--bodyHeight);
-    overflow: auto;
+    padding: 16px 0;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .content-wrap {
+    padding: 0 16px;
+  }
+
+  .sider-content {
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .ant-layout-header {
+    padding: 0 16px;
+    height: var(--headerHeight);
+    line-height: var(--headerHeight);
   }
 
   .ant-menu {
@@ -36,6 +52,7 @@ export const Wrapper = styled.div`
     color: ${theming?.color?.textTitle};
     margin-bottom: 12px;
   }
+
   .filter-heading {
     font-size: 14px;
     line-height: 22px;
@@ -44,6 +61,7 @@ export const Wrapper = styled.div`
     margin-top: 24px;
     margin-bottom: 2px;
   }
+
   .filter-info {
     font-size: 14px;
     line-height: 22px;
@@ -52,14 +70,16 @@ export const Wrapper = styled.div`
   }
 
   .ant-layout-sider-trigger {
-    background: red;
-    min-width: 60px;
+    background: ${theming?.color?.textTitle};
+    color: ${theming?.color?.white};
+    min-width: var(--footerHeight);
+    height: var(--footerHeight);
   }
 
-  .content-body {
-    padding: 16px 0;
-  }
-  .content-wrap {
-    padding: 0 16px;
+  .ant-layout-footer {
+    height: var(--footerHeight);
+    line-height: 24px;
+    text-align: center;
+    padding: 12px 16px;
   }
 `;

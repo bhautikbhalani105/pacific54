@@ -1,7 +1,9 @@
-import { StyledLayout } from '../Layout.Styled';
+import { Layout } from 'antd';
 
-const Footer: React.FC = () => {
-  return <StyledLayout.Footer>Ant Design ©2023 Created by Ant UED</StyledLayout.Footer>;
+const { Footer } = Layout;
+
+const LayoutFooter: React.FC = () => {
+  return <Footer>Ant Design ©2023 Created by Ant UED</Footer>;
 };
 
-export default Footer;
+export default LayoutFooter;

@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Col, Pagination, Row } from 'antd';
-import type { PaginationProps } from 'antd';
 
+// import type { PaginationProps } from 'antd';
 import { DataType } from '../types';
 import PropertyCard from './PropertyCard';
 
@@ -10,18 +10,17 @@ interface IProps {
   data: DataType[];
 }
 
-const onChange: PaginationProps['onChange'] = (pageNumber) => {
-  console.log('Page: ', pageNumber);
-};
+// const onChange: PaginationProps['onChange'] = (pageNumber) => {
+//   console.log('Page: ', pageNumber);
+// };
 
 const PropertyGrid: React.FC<IProps> = ({ data }) => {
   return (
     <>
       <Row gutter={[16, 16]}>
         {data.map((card) => (
-          <Col xs={6}>
+          <Col xs={6} key={card.key}>
             <PropertyCard
-              key={card.key}
               endUrl={card.key}
               address={card.address}
               beds={card.beds}
@@ -46,7 +45,7 @@ const PropertyGrid: React.FC<IProps> = ({ data }) => {
         showQuickJumper
         defaultCurrent={2}
         total={500}
-        onChange={onChange}
+        // onChange={onChange}
       />
     </>
   );
