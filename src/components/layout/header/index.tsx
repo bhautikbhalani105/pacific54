@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useMemo } from 'react';
 
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import { Avatar, Button, Col, Dropdown, Layout, Menu, MenuProps, Row } from 'antd';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { ROUTES } from '../../../utils/constants/routes';
 import { toAbsoluteUrl } from '../../../utils/functions';
@@ -11,16 +11,70 @@ import { authStore } from '../../../services/store/auth';
 
 const { Header } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number];
+function createMenuItem(
+  link?: string,
+  label?: string,
+  key?: any,
+  icon?: any,
+  children?: any,
+  type?: any
+) {
+  return {
+    link,
+    key,
+    icon,
+    children,
+    label,
+    type
+  };
+}
+
+const menus = [
+  createMenuItem(ROUTES.buy, 'BUY', '1'),
+  createMenuItem(ROUTES.marketing, 'MARKETING', '2'),
+  createMenuItem(ROUTES.contact, 'CONTACT', '3')
+];
+
+function compareLinkAndReturnKey(menus: any, currentPath: any): any {
+  let activeLinkKey;
+  for (const item of menus) {
+    if (item?.children && Array.isArray(item?.children) && item.children.length > 0) {
+      activeLinkKey = compareLinkAndReturnKey(item.children, currentPath);
+    } else if (
+      item.link === currentPath ||
+      item.link === currentPath.split('/').splice(0, 3).join('/')
+    ) {
+      activeLinkKey = item.key;
+      break;
+    } else {
+      continue;
+    }
+  }
+  return activeLinkKey;
+}
 
 const LayoutHeader: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const {
     actions: { authFail }
   } = authStore((state) => state);
   const onLogout = () => {
     authFail();
   };
+
+  const activeTab = useMemo(() => {
+    const activeLinkKey = compareLinkAndReturnKey(menus, location?.pathname);
+    if (activeLinkKey) {
+      return [activeLinkKey];
+    } else {
+      return [
+        menus?.find((item) => item?.link?.split('/')[1] === location?.pathname?.split('/')[1])
+          ?.key ?? '1'
+      ];
+    }
+  }, [location.pathname]);
 
   const items: MenuProps['items'] = [
     {
@@ -55,27 +109,6 @@ const LayoutHeader: React.FC = () => {
     }
   ];
 
-  const menu: MenuItem[] = [
-    {
-      label: 'BUY',
-      key: 'buy'
-    },
-    {
-      label: 'MARKETING',
-      key: 'marketing'
-    },
-    {
-      label: 'CONTACT',
-      key: 'contact'
-    }
-  ];
-
-  const [current, setCurrent] = useState('mail');
-
-  const onClick: MenuProps['onClick'] = (e) => {
-    setCurrent(e.key);
-  };
-
   return (
     <Header style={{ textAlign: 'center' }}>
       <Row gutter={16} align={'middle'} justify={'space-between'}>
@@ -83,7 +116,12 @@ const LayoutHeader: React.FC = () => {
           <div className="logoWrapper">
             <img src={toAbsoluteUrl('/Images/logo.svg')} />
           </div>
-          <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={menu} />
+          <Menu
+            mode="horizontal"
+            defaultSelectedKeys={activeTab}
+            onClick={({ item }: any) => navigate(item.props.link)}
+            items={menus}
+          />
         </Col>
         <Col xs={8} className="d-flex align-items-center justify-content-end">
           <Dropdown
@@ -93,11 +131,7 @@ const LayoutHeader: React.FC = () => {
             overlayClassName="layout-header-dropdown"
           >
             <Link to="" onClick={(e) => e.preventDefault()}>
-              <Avatar
-                // size="large"
-                src={toAbsoluteUrl('/icons/user_thumbnail.svg')}
-                className="profile-avatar"
-              />
+              <Avatar src={toAbsoluteUrl('/icons/user_thumbnail.svg')} className="profile-avatar" />
             </Link>
           </Dropdown>
         </Col>

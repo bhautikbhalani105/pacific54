@@ -16,6 +16,10 @@ const ForgotPassword = lazy(() => import('../modules/Auth/Modules/ForgotPassword
 const ChangePassword = lazy(() => import('../modules/Auth/Modules/ChangePassword'));
 const HomeBuy = lazy(() => import('../modules/Home/Buy'));
 const PropertyView = lazy(() => import('../modules/Home/Buy/View'));
+const Marketing = lazy(() => import('../modules/Marketing'));
+const MarketingView = lazy(() => import('../modules/Marketing/View'));
+const Contact = lazy(() => import('../modules/Contact'));
+const ContactView = lazy(() => import('../modules/Contact/View'));
 const MyAccount = lazy(() => import('../modules/MyAccount'));
 const UserList = lazy(() => import('../modules/UserManagement'));
 const UserView = lazy(() => import('../modules/UserManagement/ViewUser'));
@@ -44,6 +48,16 @@ const Routing: React.FC = () => {
           <Route path={ROUTES.buy} element={<HomeBuy />} />
           <Route path={`${ROUTES.buyView}/:id`} element={<PropertyView />} />
           <Route path="*" element={<Navigate to={ROUTES.buy} replace={true} />} />
+        </Route>
+        <Route path={ROUTES.marketing} element={<Outlet />}>
+          <Route path={ROUTES.marketing} element={<Marketing />} />
+          <Route path={`${ROUTES.marketingView}/:id`} element={<MarketingView />} />
+          <Route path="*" element={<Navigate to={ROUTES.marketing} replace={true} />} />
+        </Route>
+        <Route path={ROUTES.contact} element={<Outlet />}>
+          <Route path={ROUTES.contact} element={<Contact />} />
+          <Route path={`${ROUTES.contactView}/:id`} element={<ContactView />} />
+          <Route path="*" element={<Navigate to={ROUTES.contact} replace={true} />} />
         </Route>
         <Route path={ROUTES.userManagement} element={<Outlet />}>
           <Route path={ROUTES.userManagement} element={<UserList />} />
